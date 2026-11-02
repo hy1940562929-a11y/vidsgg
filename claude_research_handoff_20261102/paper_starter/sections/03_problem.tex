@@ -1,0 +1,38 @@
+\section{Problem and Empirical Basis}
+For an ordered entity pair, let $C=[0,T)$ denote a continuous co-presence interval,
+and $X=\{x_t\}$ its observed features. A relation event has predicate $p$ and
+interval $I^*=[s^*,e^*)$. Its temporal occupancy is
+\begin{equation}
+\pi=\frac{e^*-s^*}{T}.
+\end{equation}
+The detector predicts a set of predicate-labeled intervals, allowing simultaneous
+predicates and multiple separated occurrences of one predicate. Inference does
+not receive GT predicates, durations, or event boundaries.
+
+For temporal diagnosis, $\operatorname{tIoU}(I,I^*)=|I\cap I^*|/|I\cup I^*|$.
+If a prediction contains the entire event but adds duration $\Delta$, then
+\begin{equation}
+\operatorname{tIoU}=\frac{L}{L+\Delta},\qquad L=|I^*|.
+\end{equation}
+This establishes sensitivity to absolute boundary error for short events; it
+does not establish why a particular model makes that error. Official relation
+detection additionally requires the correct triplet and both entity tube matches.
+
+\begin{table}[t]
+\centering\small
+\caption{Historical paired Top100 outcomes on 30,142 VidOR GT instances. These are
+observations of two existing systems, not matched-input architecture ablations.}
+\begin{tabular}{lr}
+\toprule Outcome & Count / total \\
+\midrule Both detected & 2,487 / 30,142 \\
+VrdONE only & 1,809 / 30,142 \\
+Neither detected & 25,373 / 30,142 \\
+BIG only & 473 / 30,142 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The fixed 400-instance diagnosis uses already-exposed videos and correct-entity
+inputs. Its 47-to-53 interval coverage change is a limited readout result, not an
+end-to-end method gain. The independent-query upper bounds and oracle choices
+must remain separate from deployable inference.

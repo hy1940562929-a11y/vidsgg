@@ -1,0 +1,24 @@
+{
+  "experiment": "E112-SHORT-OVERSAMPLE",
+  "hypothesis": "H112",
+  "verdict": "REJECT",
+  "subcause": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "underpowered_positive": true,
+  "eligible_larger_scale": true,
+  "residual334_T_minus_N": [
+    4,
+    3,
+    13
+  ],
+  "residual334_T_minus_X": [
+    5,
+    9,
+    15
+  ],
+  "eta_T_N": 0.02272727272727273,
+  "eta_T_X": 0.03295454545454545,
+  "contract_sha256": "f83edc532f3dbbdd43f82230aafd0be8c2fef571ba2bd17270547c84a63bc618",
+  "train": "9/9",
+  "autodl": "connect.bjb1.seetacloud.com:16241",
+  "sealed_at_america_new_york": "2026-10-21 09:12:40 EDT"
+}

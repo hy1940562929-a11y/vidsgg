@@ -1,0 +1,2 @@
+COMPLETE REJECT underpowered_positive
+powered_positive eligible_scale

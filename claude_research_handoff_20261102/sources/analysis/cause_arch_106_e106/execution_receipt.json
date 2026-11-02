@@ -1,0 +1,15 @@
+{
+  "experiment": "E106-TEMPORAL-ADAPTER",
+  "hypothesis": "H106",
+  "verdict": "REJECT",
+  "subcause": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "contract_sha256": "1a2eb9105696ef4ce03264cf2ceb401df52e1b53e521795970f43587dfbf073e",
+  "train": "9/9",
+  "residual334_T_minus_N": [
+    3,
+    -5,
+    5
+  ],
+  "eta_T_N": 0.0033821871476888386,
+  "autodl": "connect.bjb1.seetacloud.com:16241"
+}

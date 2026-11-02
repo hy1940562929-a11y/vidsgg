@@ -1,0 +1,16 @@
+{
+  "experiment": "E109-COEXIST-FILM",
+  "hypothesis": "H109",
+  "verdict": "REJECT",
+  "subcause": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "contract_sha256": "407ba76f757f16c98f4a262c562ac9d4068a98cd45d83e537e5377637b40fb39",
+  "train": "9/9",
+  "residual334_T_minus_N": [
+    3,
+    1,
+    7
+  ],
+  "eta_T_N": 0.012401352874859075,
+  "autodl": "connect.bjb1.seetacloud.com:16241",
+  "sealed_at_america_new_york": "2026-10-21 08:38:01 EDT"
+}

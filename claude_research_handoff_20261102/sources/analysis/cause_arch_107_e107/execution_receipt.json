@@ -1,0 +1,17 @@
+{
+  "experiment": "E107-MASKFEAT-ADAPTER",
+  "hypothesis": "H107",
+  "verdict": "REJECT",
+  "subcause": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "contract_sha256": "888a991d7da358dbf2127740ce6925597ccdb958cdd84b7756b9b824e77e525d",
+  "train": "9/9",
+  "residual334_T_minus_N": [
+    -7,
+    -3,
+    -7
+  ],
+  "eta_T_N": -0.019165727170236752,
+  "eta_T_X": 0.10033821871476888,
+  "autodl": "connect.bjb1.seetacloud.com:16241",
+  "sealed_at_america_new_york": "2026-10-21 07:57:18 EDT"
+}

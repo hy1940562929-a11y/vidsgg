@@ -1,0 +1,31 @@
+\section{Method}
+\Missing{DESIGN ONLY: this section must be replaced by the final implemented method.}
+
+The current candidate design question is how a predicate-conditioned interval
+can explain the observed evidence without including unsupported co-presence or
+discarding valid event evidence. One abstract formulation is
+\begin{equation}
+S(p,I\mid X)=S_{\mathrm{support}}-\lambda S_{\mathrm{extension}}
+-\mu S_{\mathrm{omission}}.
+\end{equation}
+This equation is a design requirement, not an implemented algorithm or a novelty
+claim. The completed method must define all three terms, their normalization,
+training targets, inference computation, and treatment of repeated occurrences.
+
+\paragraph{Required architecture specification.}
+\Missing{Define tensor shapes, predicate conditioning, query/event assignment,
+legal coordinates, interval selection, confidence, and fixed-budget inference.}
+
+\paragraph{Training objective.}
+\Missing{Write only losses used in code. Specify native initialization, frozen
+parameters, matching, unknown-label handling, and train-only statistics.}
+
+\paragraph{Ordinary boundary control.}
+A start/end baseline can select legal endpoints using
+\begin{equation}
+\arg\max_{i<j}\left[\log p_s(i)+\log p_e(j)+
+\lambda_L\log p(L=j-i\mid p)\right].
+\end{equation}
+Conditioned boundaries and duration priors have close precedent. Their inclusion
+does not itself establish the main contribution, and true long events must retain
+support throughout the duration prior.

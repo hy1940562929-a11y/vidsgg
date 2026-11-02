@@ -1,0 +1,17 @@
+{
+  "experiment": "E108-DN-SHORT",
+  "hypothesis": "H108",
+  "verdict": "REJECT",
+  "subcause": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "contract_sha256": "672a485140c991d372affb93f94a12501ed7c9a78bcf64110b0320110ce72141",
+  "train": "9/9",
+  "residual334_T_minus_N": [
+    2,
+    0,
+    -2
+  ],
+  "eta_T_N": 0.0,
+  "eta_T_X": 0.0011299435028248588,
+  "autodl": "connect.bjb1.seetacloud.com:16241",
+  "sealed_at_america_new_york": "2026-10-21 08:14:23 EDT"
+}

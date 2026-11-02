@@ -1,0 +1,244 @@
+{
+  "status": "OK",
+  "CUDA_VISIBLE_DEVICES": "6",
+  "gpu_name": "NVIDIA GeForce RTX 4090",
+  "p_L": "next_to",
+  "p_L_id": 49,
+  "alpha": 0.8,
+  "direction_method": "mean(memory|p_L hold) - mean(memory|not) on decoder src after input_proj; train_select only; min_hold 5s",
+  "sanity": {
+    "alpha0_max_abs_mask_err": 0.0,
+    "roundtrip_max_abs_mask_err": 0.0,
+    "pass_alpha0": true,
+    "pass_roundtrip": true
+  },
+  "n_samples_attempted": 250,
+  "n_samples_ok": 221,
+  "n_errors": 29,
+  "errors_head": [
+    {
+      "i": 0,
+      "video": "10030609934",
+      "gt_index": 0,
+      "reason": "short_empty_after_align"
+    },
+    {
+      "i": 3,
+      "video": "10127533784",
+      "gt_index": 51,
+      "reason": "short_empty_after_align"
+    },
+    {
+      "i": 14,
+      "video": "13569831214",
+      "gt_index": 0,
+      "reason": "short_empty_after_align"
+    },
+    {
+      "i": 15,
+      "video": "13919236672",
+      "gt_index": 1,
+      "reason": "short_empty_after_align"
+    },
+    {
+      "i": 23,
+      "video": "2495861393",
+      "gt_index": 1,
+      "reason": "short_empty_after_align"
+    },
+    {
+      "i": 26,
+      "video": "2584172238",
+      "gt_index": 0,
+      "reason": "short_empty_after_align"
+    },
+    {
+      "i": 43,
+      "video": "2971556305",
+      "gt_index": 10,
+      "reason": "short_empty_after_align"
+    },
+    {
+      "i": 47,
+      "video": "3105728894",
+      "gt_index": 0,
+      "reason": "short_empty_after_align"
+    },
+    {
+      "i": 57,
+      "video": "3249402410",
+      "gt_index": 1,
+      "reason": "short_empty_after_align"
+    },
+    {
+      "i": 71,
+      "video": "3530231811",
+      "gt_index": 13,
+      "reason": "short_empty_after_align"
+    }
+  ],
+  "summary": {
+    "table": {
+      "original": {
+        "n": 205,
+        "M_mean": 0.38688520297589823,
+        "gin_mean": -0.6928627913136308,
+        "gout_mean": -1.079747994289529,
+        "temporal_hit": 33,
+        "temporal_hit_rate": 0.16097560975609757,
+        "pred_time_hit": 13,
+        "pred_time_hit_rate": 0.06341463414634146,
+        "over_extension_rate": 1.0,
+        "pl_score_mean": 0.15217797270998723
+      },
+      "weaken": {
+        "n": 205,
+        "M_mean": 0.38729733157357793,
+        "gin_mean": -0.6775358811020851,
+        "gout_mean": -1.064833212675663,
+        "temporal_hit": 34,
+        "temporal_hit_rate": 0.16585365853658537,
+        "pred_time_hit": 14,
+        "pred_time_hit_rate": 0.06829268292682927,
+        "over_extension_rate": 1.0,
+        "pl_score_mean": 0.15351995698562482
+      },
+      "matched_w": {
+        "n": 205,
+        "M_mean": 0.3864699500453908,
+        "gin_mean": -0.6924963716326691,
+        "gout_mean": -1.0789663216780598,
+        "temporal_hit": 33,
+        "temporal_hit_rate": 0.16097560975609757,
+        "pred_time_hit": 13,
+        "pred_time_hit_rate": 0.06341463414634146,
+        "over_extension_rate": 1.0,
+        "pl_score_mean": 0.15216479901133514
+      },
+      "strengthen": {
+        "n": 205,
+        "M_mean": 0.3872523895487553,
+        "gin_mean": -0.7001380464925272,
+        "gout_mean": -1.0873904360412825,
+        "temporal_hit": 33,
+        "temporal_hit_rate": 0.16097560975609757,
+        "pred_time_hit": 13,
+        "pred_time_hit_rate": 0.06341463414634146,
+        "over_extension_rate": 1.0,
+        "pl_score_mean": 0.15109798742867098
+      },
+      "matched_s": {
+        "n": 205,
+        "M_mean": 0.3873767730575509,
+        "gin_mean": -0.6929299697007348,
+        "gout_mean": -1.0803067427582858,
+        "temporal_hit": 33,
+        "temporal_hit_rate": 0.16097560975609757,
+        "pred_time_hit": 13,
+        "pred_time_hit_rate": 0.06341463414634146,
+        "over_extension_rate": 1.0,
+        "pl_score_mean": 0.15219258993137175
+      }
+    },
+    "recovery": {
+      "weaken": {
+        "newly": 1,
+        "lost": 0,
+        "net": 1,
+        "net_rate": 0.004524886877828055
+      },
+      "matched_w": {
+        "newly": 0,
+        "lost": 0,
+        "net": 0,
+        "net_rate": 0.0
+      },
+      "strengthen": {
+        "newly": 0,
+        "lost": 0,
+        "net": 0,
+        "net_rate": 0.0
+      },
+      "matched_s": {
+        "newly": 0,
+        "lost": 0,
+        "net": 0,
+        "net_rate": 0.0
+      }
+    },
+    "weaken_minus_matched_hit_rate_video": {
+      "mean": 0.004629629629629629,
+      "ci95": [
+        0.0,
+        0.013888888888888888
+      ],
+      "n": 216
+    },
+    "prelock_bar_pp": 5.0,
+    "manipulation": {
+      "n_mech": 205,
+      "pl_score": {
+        "original": 0.15217797270998723,
+        "weaken": 0.15351995698562482,
+        "matched_w": 0.15216479901133514,
+        "strengthen": 0.15109798742867098,
+        "matched_s": 0.15219258993137175
+      },
+      "delta_weaken": 0.0013419842756375866,
+      "delta_strengthen": -0.0010799852813162536,
+      "delta_matched_w": -1.3173698652085841e-05,
+      "far_proj_u": {
+        "base": -1.805499830083331,
+        "weaken": -0.3610999323598041,
+        "matched_w": -1.8054998241364957,
+        "strengthen": -3.2498997202461086,
+        "matched_s": -1.8054998088310041
+      },
+      "far_proj_abs": {
+        "base": 1.805499830083331,
+        "weaken": 0.3610999323598041,
+        "strengthen": 3.2498997202461086,
+        "matched_w": 1.8054998241364957,
+        "matched_s": 1.8054998088310041
+      },
+      "far_proj_deltas": {
+        "weaken": 1.4443998977235268,
+        "strengthen": -1.4443998901627777,
+        "matched_w": 5.946835246462001e-09,
+        "matched_s": 2.1252326787291054e-08
+      },
+      "other_spatial": {
+        "original": 0.034437202442460124,
+        "weaken": 0.03395472462232248
+      },
+      "attn_weights_unchanged": true,
+      "F_locked": true,
+      "gate_pass": false,
+      "gate_reason": "independent_query_pl_readout_not_moved",
+      "readout": "far |v\u00b7u| attenuate(weaken)/amplify(strengthen); matched leaves |v\u00b7u| unchanged; class pl_score corroboration",
+      "gate_note": "Recomputed from saved per_sample; gate uses |projection| because mean far coeff is negative on this sample (attenuation moves toward 0).",
+      "independent_class_pl_readout_pass": false,
+      "construction_far_proj_pass": true
+    },
+    "verdict": "MANIPULATION_FAILED",
+    "justification": "Construction fidelity OK (far |v\u00b7u| attenuate/amplify with matched flat; F(t) and attn locked), but independent query-level p_L class readout barely moved and not in the expected direction (delta_weaken=+0.0013, delta_strengthen=-0.0011). Persistent semantics in the query were not reliably manipulated, so flat short recovery cannot falsify the pathway. Diagnostic short stats still reported.",
+    "n_samples": 221,
+    "n_mech": 205,
+    "n_videos": 216,
+    "diagnostic_if_construction_only_gate": {
+      "would_be": "REJECT",
+      "weaken_minus_matched_hit_ci": {
+        "mean": 0.004629629629629629,
+        "ci95": [
+          0.0,
+          0.013888888888888888
+        ],
+        "n": 216
+      },
+      "note": "If one accepted construction-only gate, short recovery is far below +5pp bar; but protocol requires independent readout."
+    }
+  },
+  "elapsed_s": 82.6,
+  "rows_path": "per_sample.json",
+  "verdict_recomputed_from_saved": true
+}

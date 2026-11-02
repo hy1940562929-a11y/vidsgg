@@ -1,0 +1,107 @@
+{
+  "complete": true,
+  "script_version": "1.0.0",
+  "N_videos": 835,
+  "N_GT": 30142,
+  "prediction_video_keys": 834,
+  "total_predictions": 164764,
+  "missing_prediction_videos": [
+    {
+      "video_id": "4077228320",
+      "frames": 403,
+      "N_GT": 10,
+      "full": "1027_4077228320"
+    }
+  ],
+  "zero_gt_videos": [
+    "3763643225",
+    "5249108718",
+    "5549276998"
+  ],
+  "protocols": {
+    "all_saved": {
+      "A": 3055,
+      "B": 2122,
+      "C": 23866,
+      "D": 1099,
+      "N_GT": 30142,
+      "BIG_hits": 4154,
+      "VrdONE_hits": 5177,
+      "type2_ratio": 0.07040010616415633,
+      "type2_percent": 7.040010616415633,
+      "recovery_rate": 0.08165307064799138,
+      "net_gain": 0.03393935372569836,
+      "net_gain_percentage_points": 3.3939353725698362
+    },
+    "top50": {
+      "A": 1869,
+      "B": 1467,
+      "C": 26342,
+      "D": 464,
+      "N_GT": 30142,
+      "BIG_hits": 2333,
+      "VrdONE_hits": 3336,
+      "type2_ratio": 0.048669630416030785,
+      "type2_percent": 4.8669630416030785,
+      "recovery_rate": 0.05275270595850264,
+      "net_gain": 0.03327582774865636,
+      "net_gain_percentage_points": 3.327582774865636
+    },
+    "top100": {
+      "A": 2487,
+      "B": 1809,
+      "C": 25373,
+      "D": 473,
+      "N_GT": 30142,
+      "BIG_hits": 2960,
+      "VrdONE_hits": 4296,
+      "type2_ratio": 0.060015924623449006,
+      "type2_percent": 6.001592462344901,
+      "recovery_rate": 0.06655139430505481,
+      "net_gain": 0.04432353526640568,
+      "net_gain_percentage_points": 4.432353526640568
+    },
+    "top200": {
+      "A": 2919,
+      "B": 2258,
+      "C": 24371,
+      "D": 594,
+      "N_GT": 30142,
+      "BIG_hits": 3513,
+      "VrdONE_hits": 5177,
+      "type2_ratio": 0.07491208280804193,
+      "type2_percent": 7.4912082808041935,
+      "recovery_rate": 0.08479477261632055,
+      "net_gain": 0.0552053612898945,
+      "net_gain_percentage_points": 5.52053612898945
+    }
+  },
+  "vrdone_recomputed_metrics": {
+    "RelDet_mAP": 0.11737062061241847,
+    "RelDet_AR@50": 0.1106761329706058,
+    "RelDet_AR@100": 0.14252537986862185
+  },
+  "vrdone_logged_metrics": {
+    "RelDet_mAP": 0.117371,
+    "RelDet_AR@50": 0.110676,
+    "RelDet_AR@100": 0.142525
+  },
+  "matching": "official BIG eval_detection_scores_v2; exact class triplet; min(subject_vIoU,object_vIoU)>=0.5; score-descending greedy one-to-one",
+  "rank_definition": "Zero-based rank after stable score-descending sorting; topK hit iff 0<=rank<K",
+  "limitations": [
+    "BIG released final hit-info vs VrdONE reconstructed-input predictions; not a controlled shared-input ablation",
+    "all_saved compares the saved candidate sets and may have unequal prediction budgets",
+    "topK means at most K already-saved predictions per video; upstream candidate generation remains different",
+    "A missing prediction key is evaluated as [] for this verified complete inference; its GT is not dropped"
+  ],
+  "input_sha256": {
+    "/root/autodl-tmp/VidSGG-BIG-data/official_experiments/exp4_with_grounding/VidORval_hit_infos_aft_grd_with_grd_epoch70.pkl": "2bfcc75d6a0cdcd271e3f088741131367bde70d63dad14e35fbdf1c277f69192",
+    "/root/rebinding_project/VidSGG-BIG-full/VidVRDhelperEvalAPIs/visual_relation_detection.py": "3b869db461037c654e9dfbd54ff6cb33cf85e2fb503e27f06ac66b1713225682",
+    "/root/rebinding_project/VidSGG-BIG-full/VidVRDhelperEvalAPIs/common.py": "203ab54646aab3288cb50fe2112b4875df075d13497191e182a1693456c00596",
+    "/root/autodl-tmp/VrdONE-data/logs/vrdone_full_inference_retry.log": "85afbca56b4945529f1389bf4600625fcc23416a619a9c2cf3b3d2c0e9bf13b7",
+    "/root/rebinding_project/VrdONE/datasets/vidor/vidor_val_gts.json": "ab0806a88d30d8ba4d3d8f281f6f8a849a9cb98ec932412ea8f382ee6dbc88bd",
+    "/root/autodl-tmp/VrdONE-data/full_inference/predicted_relations_topk6_epoch3.json": "e409eb296be285f207ad385f3613b1b89ae714a91cb93bae8c70be8fe6351f7c"
+  },
+  "ordered_annotation_sha256": "b941dbfeb510009081661a3c54189cefe909823138a37b9ba211c80ebf971bd5",
+  "elapsed_seconds": 305.02480959892273
+}

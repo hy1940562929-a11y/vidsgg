@@ -1,0 +1,3 @@
+# REJECT / EFFECT_TOO_SMALL_OR_UNSTABLE
+
+E107 MASKFEAT_ADAPTER：训练 9/9。residual334 T−N = −7/−3/−7；eta(T,N)≈−0.019。已按合同停止。

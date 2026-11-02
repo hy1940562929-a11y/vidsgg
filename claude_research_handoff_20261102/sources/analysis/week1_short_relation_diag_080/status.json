@@ -1,0 +1,18 @@
+{
+  "status": "LOCAL_ONLY_CLOSED_FULLVAL_TEMPORAL_INCOMPLETE",
+  "no_new_training": true,
+  "fullval_native_temporal_complete": false,
+  "GT27_temporal_complete": true,
+  "independent_review": "statistics_passed_scope_and_mechanisms_require_more_evidence",
+  "artifacts": {
+    "analysis/week1_short_relation_diag_080/results_v1/diag_summary.csv": "f04c60a52af1c61dae631cdab8ce5fd9bb859b05ebb80795c6ea9759cb3b6929",
+    "analysis/week1_short_relation_diag_080/DECISION_ONEPAGE.md": "b73eeb0f3b392edfec83679860c285ded40c3621a74f297defaff6ec65cc4345",
+    "analysis/week1_short_relation_diag_080/controls_v1/controlled_summary.csv": "ddd482082d6a3ddf38bfc72c45831c489c0beac1c139f1ab5b9610688ac8dd2a",
+    "analysis/week1_short_relation_diag_080/readout_audit_v1/readout_audit.csv": "f816871395e1c633fca4a226aebde71521aa83e9709fe9f668e417d9576e5b09"
+  },
+  "fullval_incomplete_reason": "全 val 时间诊断未做完：当前无远程资源；用户已要求跳过 AutoDL、SSH、远程及全量重跑。",
+  "remote_requests_allowed": false,
+  "survey_followup_status": "NOT_COMPLETED_STOPPED_AT_USER_USAGE_LIMIT",
+  "usage_used_percent_at_stop": 41,
+  "latest_user_usage_stop_percent": 30
+}

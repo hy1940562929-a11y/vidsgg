@@ -1,0 +1,57 @@
+{
+  "draft_status": "INITIAL_MANUSCRIPT_NOT_SUBMISSION_READY",
+  "source_report_sha256": "ac98205abeb0f3eefdd17c1c39b1ff35d813e81f7a574ecf8b625d242ce4615d",
+  "main_tex_sha256": "62956f6e952092e7df17af5b4e6f6f428d5e3a7c164b0068994e59899d23a919",
+  "pdf_sha256": "586f8a2b8657aa847c84525fa1f0e5ed5c643f477753c9279303a4b104f73038",
+  "pdf_pages": 7,
+  "scientific_results_modified": false,
+  "experiments_run": false,
+  "reviews": [
+    {
+      "round": 1,
+      "decision": "REVISE",
+      "corrections": [
+        "distinguish Event taxonomy from duration",
+        "preserve negative predicate-aware and long-duration results",
+        "remove unknown heatmap units and channel-count assertion",
+        "remove unsupported invariants in duration substitution",
+        "separate detector seed statistics from probe point accuracies",
+        "move quantitative persistent-pair scope into introduction",
+        "show predicate-aware result in main table"
+      ]
+    },
+    {
+      "round": 2,
+      "decision": "PASS_WITH_CONCERNS_FOR_DRAFT_ONLY",
+      "minor_resolutions": [
+        "long-duration/query wording corrected",
+        "213-to-207 discrepancy not asserted filtering",
+        "0.5 mask threshold attributed to public VrdONE reference"
+      ]
+    }
+  ],
+  "remaining_submission_gaps": [
+    "raw per-seed result files and evaluator unavailable",
+    "matching threshold and assignment/aggregation unverified",
+    "train/probe manifests and full configuration missing",
+    "no official mAP or external detector comparison in supplied report",
+    "no aggregate persistent-pair-conditioned TICK result",
+    "novelty not comprehensively established"
+  ],
+  "layout_validation": {
+    "local_pdflatex": "PASS",
+    "undefined_references": false,
+    "overfull_boxes": false,
+    "visual_pages_checked": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "app_compiler": "No completed receipt; local compiler used",
+    "macro_spacing": "PASS"
+  }
+}

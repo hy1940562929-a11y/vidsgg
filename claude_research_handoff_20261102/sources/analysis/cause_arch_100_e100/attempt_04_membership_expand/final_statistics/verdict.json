@@ -1,0 +1,17 @@
+{
+  "verdict": "REJECT",
+  "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "checks": {
+    "active": true,
+    "headroom": true,
+    "true_path_better": true,
+    "eta": false,
+    "seeds": false,
+    "main400": false,
+    "mechanism": false,
+    "protection": false
+  },
+  "training_completed": 9,
+  "optimizer_steps": 4500,
+  "contract_amendment": "E100-A1"
+}

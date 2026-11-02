@@ -1,0 +1,16 @@
+{
+  "experiment": "E103-UNIT-MASS-W1",
+  "hypothesis": "H103",
+  "verdict": "REJECT",
+  "subcause": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "contract_sha256": "7d30315bef7fa6aaea956701804a53898ec898c939dedc31f030ef984a5359cc",
+  "train": "9/9",
+  "residual334_T_minus_N": [
+    -4,
+    -13,
+    -3
+  ],
+  "eta_T_N": -0.022573363431151246,
+  "autodl": "connect.bjb1.seetacloud.com:16241",
+  "takeover": "Grace/supervisor continues"
+}

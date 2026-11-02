@@ -1,0 +1,139 @@
+{
+  "overall": {
+    "N": 2573,
+    "native_viou50": 683,
+    "gt_viou50": 1678,
+    "gains": 1059,
+    "losses": 64,
+    "net": 995,
+    "gt_binary50": 1717,
+    "gt_tiou50": 1731,
+    "grid_hull_tiou50_feasible": 2563
+  },
+  "short_lt3": {
+    "N": 966,
+    "native_viou50": 144,
+    "gt_viou50": 452,
+    "gains": 328,
+    "losses": 20,
+    "net": 308,
+    "gt_binary50": 458,
+    "gt_tiou50": 473,
+    "grid_hull_tiou50_feasible": 956
+  },
+  "duration": {
+    "<1s": {
+      "N": 333,
+      "native_viou50": 10,
+      "gt_viou50": 66,
+      "gains": 60,
+      "losses": 4,
+      "net": 56,
+      "gt_binary50": 55,
+      "gt_tiou50": 75,
+      "grid_hull_tiou50_feasible": 323
+    },
+    "1-3s": {
+      "N": 633,
+      "native_viou50": 134,
+      "gt_viou50": 386,
+      "gains": 268,
+      "losses": 16,
+      "net": 252,
+      "gt_binary50": 403,
+      "gt_tiou50": 398,
+      "grid_hull_tiou50_feasible": 633
+    },
+    "3-10s": {
+      "N": 1018,
+      "native_viou50": 313,
+      "gt_viou50": 699,
+      "gains": 417,
+      "losses": 31,
+      "net": 386,
+      "gt_binary50": 723,
+      "gt_tiou50": 718,
+      "grid_hull_tiou50_feasible": 1018
+    },
+    ">=10s": {
+      "N": 589,
+      "native_viou50": 226,
+      "gt_viou50": 527,
+      "gains": 314,
+      "losses": 13,
+      "net": 301,
+      "gt_binary50": 536,
+      "gt_tiou50": 540,
+      "grid_hull_tiou50_feasible": 589
+    }
+  },
+  "entity_short": {
+    "both_long": {
+      "N": 662,
+      "native_viou50": 73,
+      "gt_viou50": 190,
+      "gains": 137,
+      "losses": 20,
+      "net": 117,
+      "gt_binary50": 208,
+      "gt_tiou50": 204,
+      "grid_hull_tiou50_feasible": 658
+    },
+    "one_short": {
+      "N": 283,
+      "native_viou50": 63,
+      "gt_viou50": 243,
+      "gains": 180,
+      "losses": 0,
+      "net": 180,
+      "gt_binary50": 229,
+      "gt_tiou50": 248,
+      "grid_hull_tiou50_feasible": 277
+    },
+    "both_short": {
+      "N": 21,
+      "native_viou50": 8,
+      "gt_viou50": 19,
+      "gains": 11,
+      "losses": 0,
+      "net": 11,
+      "gt_binary50": 21,
+      "gt_tiou50": 21,
+      "grid_hull_tiou50_feasible": 21
+    }
+  },
+  "C": {
+    "N": 2270,
+    "native_viou50": 385,
+    "gt_viou50": 1385,
+    "gains": 1054,
+    "losses": 54,
+    "net": 1000,
+    "gt_binary50": 1424,
+    "gt_tiou50": 1433,
+    "grid_hull_tiou50_feasible": 2260
+  },
+  "short_joint_atleast3": {
+    "N": 626,
+    "native_viou50": 68,
+    "gt_viou50": 161,
+    "gains": 113,
+    "losses": 20,
+    "net": 93,
+    "gt_binary50": 178,
+    "gt_tiou50": 174,
+    "grid_hull_tiou50_feasible": 625
+  },
+  "short_joint_atleast10": {
+    "N": 466,
+    "native_viou50": 29,
+    "gt_viou50": 49,
+    "gains": 38,
+    "losses": 18,
+    "net": 20,
+    "gt_binary50": 66,
+    "gt_tiou50": 61,
+    "grid_hull_tiou50_feasible": 466
+  },
+  "grid_feasible_but_tiou_failed": 832
+}

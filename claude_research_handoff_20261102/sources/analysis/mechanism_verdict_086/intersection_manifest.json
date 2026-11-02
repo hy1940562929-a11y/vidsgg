@@ -1,0 +1,78 @@
+{
+  "kind": "POSTHOC_EXISTING_EVIDENCE_INTERSECTION_NOT_NEW_EXPERIMENT",
+  "threshold": 0.5,
+  "relation_short_seconds": 3,
+  "long_coexist_seconds": 10,
+  "oracle_scope": "all same-identity segments and queries; GT temporal selection; predicate unconstrained",
+  "source_sha256": {
+    "analysis/week1_query_feasibility_083/results_v1/per_gt.csv": "96deef1d2d384fdd64714a50ffa0320217c70c857891504908e7c181fe82dcef",
+    "analysis/week1_component_readout_084/results_v1/per_gt.csv": "6b04f1776ba75f1faa8869bfcfff5f6f9c490110894b9911f7daeeecd043a8f6"
+  },
+  "code_sha256": "6257bf2484d4257ba108bc951cbb0bf0f3ebfcc3c7afcd6de021b294ac31c1ed",
+  "rows": [
+    {
+      "group": "long_coexist_short_all",
+      "N": 466,
+      "videos": 24,
+      "selected_hits": 10,
+      "grid_feasible": 466,
+      "default_hull_hits": 61,
+      "threshold_hull_additional": 95,
+      "grid_feasible_hull_family_missing": 310,
+      "default_component_hits": 77,
+      "default_component_gain": 17,
+      "default_component_loss": 1,
+      "raw_component_hits": 417,
+      "raw_component_gain": 262,
+      "raw_component_loss": 1
+    },
+    {
+      "group": "long_coexist_short_covered",
+      "N": 400,
+      "videos": 23,
+      "selected_hits": 10,
+      "grid_feasible": 400,
+      "default_hull_hits": 47,
+      "threshold_hull_additional": 74,
+      "grid_feasible_hull_family_missing": 279,
+      "default_component_hits": 61,
+      "default_component_gain": 15,
+      "default_component_loss": 1,
+      "raw_component_hits": 355,
+      "raw_component_gain": 234,
+      "raw_component_loss": 0
+    },
+    {
+      "group": "long_coexist_subsecond_covered",
+      "N": 163,
+      "videos": 22,
+      "selected_hits": 0,
+      "grid_feasible": 163,
+      "default_hull_hits": 0,
+      "threshold_hull_additional": 20,
+      "grid_feasible_hull_family_missing": 143,
+      "default_component_hits": 1,
+      "default_component_gain": 1,
+      "default_component_loss": 0,
+      "raw_component_hits": 137,
+      "raw_component_gain": 117,
+      "raw_component_loss": 0
+    },
+    {
+      "group": "short_coexist_short_covered",
+      "N": 169,
+      "videos": 23,
+      "selected_hits": 117,
+      "grid_feasible": 168,
+      "default_hull_hits": 144,
+      "threshold_hull_additional": 16,
+      "grid_feasible_hull_family_missing": 8,
+      "default_component_hits": 144,
+      "default_component_gain": 0,
+      "default_component_loss": 0,
+      "raw_component_hits": 165,
+      "raw_component_gain": 5,
+      "raw_component_loss": 0
+    }
+  ]
+}

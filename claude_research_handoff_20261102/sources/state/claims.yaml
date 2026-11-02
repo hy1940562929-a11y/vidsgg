@@ -1,0 +1,723 @@
+claims:
+  C009_FIXED_INPUT_LIMIT:
+    status: SUPPORTED
+    text: 原固定共同漏检C中16,828/25,373条在当前VrdONE合格输入轨迹对上不存在可匹配的连续区间；仅改固定输入上的关系分数或区间不能恢复这些条目。
+    evidence_ids:
+    - EV-VIDOR-COMMON-FAILURE-20260928-009-PROFILE
+    scope: 当前输入与匹配协议；不是BIG侧输入诊断，也不是同时可达的oracle召回率。
+  C009_LOCAL_R4_RECOVERY:
+    status: SUPPORTED
+    text: 完整验证中R4恢复64条原C：58条同候选时空匹配资格恢复，6条已有兼容候选的排序或分配改变；同时造成108条原正确关系丢失。
+    evidence_ids:
+    - EV-VIDOR-COMMON-FAILURE-20260928-009-FULL835
+    scope: 当前checkpoint、输入、Top100及固定0.75掩码阈值；局部恢复不等于总体改进或新颖性。
+  C009_UNIFORM_R4_OVERALL_GAIN:
+    status: CONTRADICTED
+    text: 统一将mask阈值由0.5提高到0.75可在当前完整验证集上总体提升VrdONE。
+    evidence_ids:
+    - EV-VIDOR-COMMON-FAILURE-20260928-009-FULL835
+    reason: mAP点估计下降；Top100新增78、损失108、净-30。保留早期32/64的正向点估计，不据其忽略全量负结果。
+  C009_HISTORY_CAUSAL_EXPLANATION:
+    status: UNVERIFIED
+    text: 这些共同漏检由过去关系压制当前关系或参与者切换造成。
+    evidence_ids:
+    - EV-VIDOR-EVENT-SUPPORT-073
+    missing_evidence: 073已固定当前/未来输入进行旧事件8点历史替换，87事件的off和restart均未达预设效应；该操作不支持此解释，也未排除所有历史作用。仍缺语义核验与可复现的定向机制证据，参与者切换尚不能由该试验推断。
+  C009_ADAPTIVE_BOUNDARY_METHOD:
+    status: UNVERIFIED
+    text: 独立起止边界修正能超过简单阈值校准，并构成独立的方法贡献。
+    evidence_ids: []
+    missing_evidence: 真实训练链、开发集与简单基线对照、完整效果和相关机制差异；首尾残差操作本身已有先例。
+  C010_LOCAL_RANK_RECOVERY:
+    status: SUPPORTED
+    text: 固定32验证视频上，2000步class_only和full同样新增3条、丢失2条Top100命中，恢复2条旧C；十条前后见证的完整几何相同，五条变化属于已有候选排序跨越Top100。
+    evidence_ids:
+    - EV-VIDOR-ARCHITECTURE-20260929-010-PILOT32
+    scope: 32视频/1209GT、同一初始化及固定小训练缓存；不外推完整benchmark或所有样例类型。
+  C010_FULL_ADDED_BENEFIT_IN_PILOT:
+    status: CONTRADICTED
+    text: 当前小试中full的Top100召回严格优于class_only，且mAP不低于class_only。
+    evidence_ids:
+    - EV-VIDOR-ARCHITECTURE-20260929-010-PILOT32
+    reason: 召回均为140/1209、gain/loss集合相同；full mAP=0.06908883285，低于class_only=0.06910230205。
+  C010_SHORT_RELATION_NET_RECOVERY_IN_PILOT:
+    status: CONTRADICTED
+    text: 当前full小试取得短于3秒关系的Top100净恢复。
+    evidence_ids:
+    - EV-VIDOR-ARCHITECTURE-20260929-010-PILOT32
+    reason: 454条短关系新增1、丢失1、35→35命中；132条亚秒关系仍无命中。
+  C010_TEMPORAL_MECHANISM_GENERAL_EFFECTIVENESS:
+    status: UNVERIFIED
+    text: 谓词时间证据耦合在更充分训练或更匹配输入域时可以带来独立时间定位收益。
+    evidence_ids:
+    - EV-VIDOR-ARCHITECTURE-20260929-010-PILOT32
+    missing_evidence: 当前小试未支持新增时间分支收益；需训练内开发集的时间可分性诊断及明确对照，不能用数据规模不足直接解释负结果。
+  C011_LOCAL_C_GEOMETRY_RECOVERY:
+    status: SUPPORTED
+    text: 固定32视频中local恢复9/1047条原C，对应保存候选均有min-vIoU跨越0.5；其中7条纯时间IoU提高、2条降低。
+    evidence_ids:
+    - EV-VIDOR-ARCHITECTURE-20260929-011-PILOT32
+    scope: 保存候选对应，不认证内部query身份；个例检测恢复不等于总体或真实时间边界普遍改善。
+  C011_LOCAL_OVERALL_GAIN_IN_PILOT:
+    status: CONTRADICTED
+    text: 本轮local在同一完整1209GT评价总体上同时提高mAP与R100。
+    evidence_ids:
+    - EV-VIDOR-ARCHITECTURE-20260929-011-PILOT32
+    reason: mAP6.8242%→5.9238%；Top100139→121，新增11、损失29。
+  C011_LOCAL_EXCEEDS_POOLED_IN_PILOT:
+    status: CONTRADICTED
+    text: 本轮local严格超过同参数pooled对照。
+    evidence_ids:
+    - EV-VIDOR-ARCHITECTURE-20260929-011-PILOT32
+    reason: pooled mAP6.9160%、Top100140，均高于local。
+  C011_POOLED_POSITIVE_POINT_ESTIMATE:
+    status: SUPPORTED
+    text: pooled恢复4条原C，新增4/损失3，mAP和R100点估计提高；R200下降2条。
+    evidence_ids:
+    - EV-VIDOR-ARCHITECTURE-20260929-011-PILOT32
+    scope: 已暴露32视频、单种子、小固定训练缓存；两项改善的描述性配对视频95%区间均含零。
+  C011_STABLE_FULL_BENCHMARK_GAIN:
+    status: UNVERIFIED
+    text: M011在完整VidOR或独立评价中稳定提高总体性能。
+    evidence_ids: []
+    missing_evidence: 本轮仅固定32探索评估；local负结果必须保留，不以扩数据假定其必然修复。
+  C016_UOIC_OVERALL_IMPROVEMENT:
+    status: CONTRADICTED
+    text: 固定UOIC组件并集在native32同时改善总体mAP和Top100。
+    evidence_ids:
+    - EV-VIDOR-NATIVE-DECODING-016
+    reason: mAP0.0682423283→0.0622654931；Top100139→125，新增0、损失14；固定C恢复0/1047。
+  C016_UNCHANGED_CANDIDATE_RANKING_LOSSES:
+    status: SUPPORTED
+    text: 本轮14条Top100损失的原匹配预测几何与分数不变，因追加候选后排名移出Top100。
+    evidence_ids:
+    - EV-VIDOR-NATIVE-DECODING-016
+    scope: 固定native32和本次组合规则；不是新评分方法有效性的证据。
+  C017_FIXED_TRAINING_CACHE_ATTRITION:
+    status: SUPPORTED
+    text: 我们的固定train32缓存原1237GT中，628被导出配额排除，46被选中pair的目标数限制过滤，550完整采样支持与13裁剪后支持保留。
+    evidence_ids:
+    - EV-VIDOR-TRAINING-SAMPLING-017
+    scope: M010/M011本次固定导出，不能推断原论文完整训练分布或性能因果。
+  C018_FIXED_ADDITION_NOVEL_COVERAGE:
+    status: SUPPORTED
+    text: 固定native32上，68208个追加候选使全池可匹配GT由277/1209增至285/1209，新增8条均属于原C；短于3秒新增3/454，亚秒新增0/132。
+    evidence_ids:
+    - EV-VIDOR-CANDIDATE-QUALITY-018
+    scope: GT辅助几何覆盖，不是新检测性能；原016总体负结果不变。
+  C018_TOP100_ADDITION_REDUNDANCY:
+    status: SUPPORTED
+    text: UOIC Top100内591个追加候选中560无标注兼容边，31覆盖已命中GT，没有提供新的GT覆盖或官方分配。
+    evidence_ids:
+    - EV-VIDOR-CANDIDATE-QUALITY-018
+    scope: 31是覆盖冗余，其中仅1与H0精确同轨迹/谓词/区间；无边不等于语义错误。
+  C018_CONTEXT_SUPPRESSION_MECHANISM:
+    status: UNVERIFIED
+    text: 目标缓存输入保持不变时，段外上下文系统压制正确短关系的时间定位。
+    evidence_ids: []
+    missing_evidence: 原生时间响应对齐及位置对照；固定目标输入、采样与padding的成对干预；重复性与OOD解释排查。
+  C019_FROZEN_ALIGNMENT:
+    status: SUPPORTED
+    text: 固定GT输入27视频上，1354个有效pair段谓词单位的set时间响应视频宏AUROC为0.697246，相对平移对照均值差0.208264；共同边界1103单位仍为正。
+    evidence_ids:
+    - EV-VIDOR-TEMPORAL-ALIGNMENT-019
+    scope: 已暴露验证子集、已知谓词条件的诊断响应；不是GT召回率或检测改进。
+  C019_SHORT_CONDITIONAL_ADVANTAGE:
+    status: CONTRADICTED
+    text: 019短关系单位中，set响应的宏AUROC严格高于无谓词query平均响应。
+    evidence_ids:
+    - EV-VIDOR-TEMPORAL-ALIGNMENT-019
+    reason: 505/638有效短单位中set=0.590419，querymean=0.593353；该点差不能外推所有方法。
+  C019_QUERY_SELECTION_CAUSE:
+    status: UNVERIFIED
+    text: 短关系时间信息已存在于query集合，但被全段谓词分数错误绑定或选择。
+    evidence_ids: []
+    missing_evidence: 固定query集合的选择对照、同搜索预算位置null及短关系构成控制。
+  C020_SHORT_QUERYBANK_ALIGNMENT:
+    status: SUPPORTED
+    text: 固定GT输入短组505/638有效单位中，九query的GT最佳时间对齐比同搜索预算位置null高0.072618，视频bootstrap区间[0.045891,0.095518]。
+    evidence_ids:
+    - EV-VIDOR-QUERY-BINDING-020
+    scope: 诊断oracle，只支持标注时间关联；不保证目标谓词语义或检测收益。
+  C020_SHORT_SELECTION_DEFECT:
+    status: UNVERIFIED
+    text: 短事件漏检可以归因于目标谓词没有选中现有最佳query。
+    evidence_ids:
+    - EV-VIDOR-QUERY-BINDING-020
+    reason: 校正差0.000636、区间[-0.055092,0.059609]，原定判定INCONCLUSIVE；诊断single并非官方解码器。
+  C020_HARMFUL_CLASS_MAPPING:
+    status: UNVERIFIED
+    text: 短关系中原类别与mask对应关系有害，打乱它可改善时间定位。
+    evidence_ids:
+    - EV-VIDOR-QUERY-BINDING-020
+    reason: 真实原set点值0.590419高于置换均值0.551413；映射差及校正差区间跨零，未支持有害机制。
+  C021_FIXED_SPARSE_WITNESSES:
+    status: SUPPORTED
+    text: 固定GT输入27视频中，原520条阈值hull不可达事件有61条在至多两点删除族中可达，35条用至多一点已可达。
+    evidence_ids:
+    - EV-VIDOR-SPARSE-HULL-021
+    scope: GT辅助时间几何存在性；61条均为原C，不是实际C恢复或检测改善。
+  C021_SPARSE_POSITION_ADVANTAGE:
+    status: UNVERIFIED
+    text: 稀疏端部删点修复在共同失败条件下显著优于同预算位置对照。
+    evidence_ids:
+    - EV-VIDOR-SPARSE-HULL-021
+    reason: 主宏差-0.044079、区间[-0.101862,0.004341]；冻结判定INCONCLUSIVE，不能称已证实优势或机制完全无效。
+  C022_NOOP_TECHNICAL_REPRODUCTION:
+    status: SUPPORTED
+    text: 固定3个形状预选GT输入视频、406pair共存段上，原前向重现015，记录hook及等值clone不改变输出，末端时间mask可以由导出e/f准确重构。
+    evidence_ids:
+    - EV-VIDOR-CONTEXT-ENTRY-022
+    scope: 仅技术复现准入；无上下文替换、无检测收益或机制结论，无真实>200pair分片覆盖。
+  C023_FIXED_EDGE_OPERATION_OVERALL_DEGRADATION:
+    status: SUPPORTED
+    text: 固定GT辅助27视频中，远端连接屏蔽F令Top100从855/2573降至794/2573，新增36损失97；mAP0.284325降至0.262145。
+    evidence_ids:
+    - EV-VIDOR-DECODER-EDGES-023
+    scope: 仅023冻结操作与暴露非随机群体，不证明所有上下文有害或有益。
+  C023_DISTAL_SUPPRESSION_MECHANISM:
+    status: UNVERIFIED
+    text: 远端上下文压制短关系，屏蔽远端连接比同数量随机屏蔽更能恢复目标且不损失总体。
+    evidence_ids:
+    - EV-VIDOR-DECODER-EDGES-023
+    reason: 目标5/177到4/177，D0/DR区间跨零，预设判定INCONCLUSIVE且全体下降；没有训练准入。
+  C023_GT_OUTSIDE_HYBRID_LOCAL_TRADEOFF:
+    status: SUPPORTED
+    text: Gout的GT外mask混合使目标5/177到18/177，新增14损失1；全体855/2573到818/2573，新增26损失63。
+    evidence_ids:
+    - EV-VIDOR-DECODER-EDGES-023
+    scope: 依赖GT边界的离线诊断，不是可部署方法；128/177目标为watch。
+  C024_FIXED_GAIN_RANKING:
+    status: SUPPORTED
+    text: 023 F的36条新增中26条原query mask/class及实际匹配预测几何和分数不变，来自未编辑pair，由保存尾部进入Top100。
+    evidence_ids:
+    - EV-VIDOR-DECODER-LOSS-024
+    scope: 固定27视频GT输入操作的排序收益，不能解释为这些关系的时间理解改善。
+  C024_FIXED_LOSS_DECOMPOSITION:
+    status: SUPPORTED
+    text: F丢失97条中15条仍有尾部兼容候选、82条无saved200兼容候选；原query中88条hull改变、33条mask变空、91条谓词分数下降。
+    evidence_ids:
+    - EV-VIDOR-DECODER-LOSS-024
+    scope: query变化可重叠；保存缺失不等于截断前未生成，也不证明原上下文有害。
+  C024_GT_HYBRID_TARGET_COMPATIBILITY:
+    status: SUPPORTED
+    text: Gout的14条目标新增均已有A同query同谓词保存候选，vIoU低于0.5；GT内mask与类别不变的混合后达到0.5。
+    evidence_ids:
+    - EV-VIDOR-DECODER-LOSS-024
+    scope: GT辅助离线诊断；全体仍新增26损失63，不是部署方法。
+  C024_SHARED_QUERY_CASES:
+    status: SUPPORTED
+    text: Gout目标新增和全体损失之间有2个可靠共享query链接，涉及2/14新增与2/63损失，均为同一视频的同谓词不相交时段。
+    evidence_ids:
+    - EV-VIDOR-DECODER-LOSS-024
+    scope: 具体输出取舍案例，不能解释其余61条损失，不等于普遍多段关系机制。
+  C024_SHARED_QUERY_DOMINANT_MECHANISM:
+    status: UNVERIFIED
+    text: 共享query时间支持冲突是短关系漏检或此次干预损失的主要原因，局部query修正可取得总体稳定收益。
+    evidence_ids:
+    - EV-VIDOR-DECODER-LOSS-024
+    reason: 仅2个同视频链接，不同谓词链接为0；无独立机制或可部署方法验证，局部时间支持已有直接先例。
+  C025_NATIVE_TIME_OUTPUT_GAP:
+    status: SUPPORTED
+    text: 冻结64个原生输入视频中，输入可行短C的186/287条在实际网格存在可匹配区间，但原query hull均不匹配；分布29视频，视频bootstrap比例区间[0.501578,0.750031]。
+    evidence_ids:
+    - EV-VIDOR-NATIVE-ERROR-025
+    scope: 已暴露且含旧outcome-derived排除的1985GT群体；GT辅助诊断，非全VidOR无偏估计或恢复预测。
+  C025_TIME_GAP_CAUSAL_MECHANISM:
+    status: UNVERIFIED
+    text: 025原生短关系输出缺口由上下文、记忆或特定读出模块造成，针对该模块即可总体改善检测。
+    evidence_ids: []
+    missing_evidence: 需要固定输入、其他计算与输出预算的机制对照，报告全体新增损失；规模门与GT辅助过伸形态不能替代因果证据。
+  C026_FIXED_ENERGY_RULE_OVERALL_GAIN:
+    status: CONTRADICTED
+    text: 固定savedTop200的累计rawlogit连续区间读出在native64取得总体检测提升。
+    evidence_ids:
+    - EV-VIDOR-ENERGY-READOUT-026
+    reason: Top100仍298/1985，新增0损失0，mAP不变，原目标0/186；冻结STOP_THIS_RULE。
+  C026_TEMPORAL_INFORMATION_ABSENT:
+    status: UNVERIFIED
+    text: 原生query输出或时间特征没有足够信息区分短关系边界。
+    evidence_ids: []
+    missing_evidence: 026仅检验特定固定候选读出，9950/10135的全正区间在数学上不改变；不能据此否定全部信息。
+  C029_FIXED_LINEAR_PROBE_INCONCLUSIVE:
+    status: SUPPORTED
+    text: 冻结55任务/17视频同视频探针中，真实F AUC .975963、条件平移AUC .972951；S_F .003013与F-vs-span
+      D -.000942区间均跨0，未通过正向门槛。
+    evidence_ids:
+    - EV-VIDOR-READOUT-PROBE-029
+    scope: 逐GT辅助、已暴露选择且全局F共享上下文；不是检测恢复或独立泛化。
+  C029_QUERY_SPACE_CAUSAL_BOTTLENECK:
+    status: UNVERIFIED
+    text: query张成空间不足是原生短关系漏检的原因，扩大读出可总体改善检测。
+    evidence_ids:
+    - EV-VIDOR-READOUT-PROBE-029
+    reason: 此次受控探针未获得稳定额外优势；既未证明原因也未证明信息不存在。
+  C031_FIXED_SCORE_OVERALL_GAIN:
+    status: CONTRADICTED
+    text: 固定R1几何均值评分在native64取得Top100和mAP总体收益。
+    evidence_ids:
+    - EV-VIDOR-SCORE-RULE-031
+    reason: Top100298→295/1985,+5/-8；mAP.112319987→.111659436，C5/1660不足以抵消全体损失。
+    scope: 这64视频探索验证及固定规则，不外推所有排序方法。
+  C032_FIXED_LOCAL_REPAIR:
+    status: SUPPORTED
+    text: 固定GT输入开发169条中，coverage相对原local均值0.598849→0.635066，阈值110→112，新增9损失7；unknown50均值改善但49/50通过不变。
+    evidence_ids:
+    - EV-VIDOR-VISIBLE-COVERAGE-032
+    scope: 单seed自建M011头局部修复；不是检测收益。
+  C032_REPAIR_BEATS_REFERENCES:
+    status: CONTRADICTED
+    text: coverage修复后的整体开发区间质量不低于初始或旧pooled。
+    evidence_ids:
+    - EV-VIDOR-VISIBLE-COVERAGE-032
+    reason: 112/169低于anchor121/169及pooled120/169；均值亦低，预设不扩大。
+  C033_TRAIN_LOSS_MAP_DIVERGENCE:
+    status: SUPPORTED
+    text: 固定M011权重重评中，coverage相对anchor在训练341已监督组NLL降低且IoU降低，同GT118/341；unknown222对应coverage
+      NLL降低且IoU降低，同GT193/222。
+    evidence_ids:
+    - EV-VIDOR-CHECKPOINT-LOSS-033
+    scope: GT实体对/谓词的采样格诊断，不是正式检测或唯一机制证明。
+  C033_UNIQUE_NATIVE_CAUSE:
+    status: UNVERIFIED
+    text: MAP读出与训练损失不一致是原生VrdONE短关系共同失败的主要原因。
+    evidence_ids: []
+    missing_evidence: 033只研究自建头，并未在原生VrdONE固定输出下做对应机制干预。
+  C034_OWN_POSTERIOR_LOCAL_EFFECT:
+    status: SUPPORTED
+    text: 固定GT辅助开发169条中，coverage的MAP→期望IoU读出使均值.635066→.651787，112→118达标，新增10损失4。
+    evidence_ids:
+    - EV-VIDOR-BAYES-INTERVAL-034
+    scope: 自建M011后验上的局部干预，不是正式关系检测。
+  C034_BEATS_ORIGINAL_REFERENCE:
+    status: CONTRADICTED
+    text: coverage期望IoU读出不低于原anchorMAP整体表现。
+    evidence_ids:
+    - EV-VIDOR-BAYES-INTERVAL-034
+    reason: 118/169低于121/169，均值.651787低于.701495；相对anchorMAP新增2损失5。
+  C035_CLASS_GATE_GEOMETRIC_OPPORTUNITY:
+    status: SUPPORTED
+    text: 固定native64输入中，原1159类别约束不可行GT有143条在放宽双实体类别后出现几何可行见证，跨26视频；短C为61/794，剩1016仍不可行。
+    evidence_ids:
+    - EV-VIDOR-NATIVE-CLASS-GATE-035
+    scope: 任意连续区间的GT辅助存在性诊断，不是实际检测恢复或身份确认。
+  C035_DEPLOYABLE_ENTITY_CLASS_REPAIR:
+    status: UNVERIFIED
+    text: 利用无GT类别信息纠正这些候选后可改善总体VidOR检测。
+    evidence_ids: []
+    missing_evidence: 037有候选信息正信号，038直接全局argmax实际负结果；仍无总体有效的GTfree类别方法。
+  C036_SAMPLED_CACHE_SOFT_CLASS_INFORMATION:
+    status: PARTIALLY_SUPPORTED
+    text: 已核验3份原始proposal缓存保留额外300维softclasseme，384/384抽样行可在预定容差内唯一恢复80类前景权重。
+    evidence_ids:
+    - EV-VIDOR-ENTITY-CLASS-SOURCES-036
+    scope: Commander已复算，独立review待补；不代表所有缓存或实际检测收益。
+  C037_FIXED_BANK_INFORMATION:
+    status: PARTIALLY_SUPPORTED
+    text: 同64视频1213条轨迹的GTfree soft2在143个类别受限目标上出现92条可行见证，语义近邻62，五次随机平均1.4；视频配对差值区间下界均正。
+    evidence_ids:
+    - EV-VIDOR-CLASS-CANDIDATES-037
+    scope: Commander复核；独立review待补。GT辅助可行性，不是实际检测提升。
+  C038_GLOBAL_MEAN_LABEL_GAIN:
+    status: CONTRADICTED
+    text: 固定输出的整轨平均类别argmax替换提高总体Top100与mAP。
+    evidence_ids:
+    - EV-VIDOR-CLASS-LABEL-038
+    reason: Top100298→292/1985，新增6、损失12；mAP.112319987→.111843812。点估计未通过预设门槛；区间跨0，不声称显著负效应。
+    scope: Commander复核待独立review；只限此规则及已暴露64视频。
+  C038_CLASS_AND_SUPPORT_GAP:
+    status: PARTIALLY_SUPPORTED
+    text: 在037的92条软类别候选可行目标中，固定Top100预测的GT逐样本选类别上界为23/92，实际argmax命中2/92；55/92有正确谓词但当前区间/轨迹不能匹配。
+    evidence_ids:
+    - EV-VIDOR-CLASS-LABEL-038
+    scope: 事后诊断；逐GT上界不等于联合可实现召回；不足以归因于时间mask唯一机制。
+  C039_CURRENT_PAIR_SUPPORT_DECOMPOSITION:
+    status: PARTIALLY_SUPPORTED
+    text: 038的55条正确谓词但未匹配GT中，23条在当前Top100对应pair上任何区间均不可行；29条同pair原hull可截出合法匹配子区间，2条受grid/min5约束，1条需超出原hull。
+    evidence_ids:
+    - EV-VIDOR-CLASS-SUPPORT-039
+    scope: GT辅助类别的事后诊断；Commander复核、独立review待补；无检测收益。
+  C039_CONTIGUOUS_FOREGROUND_WITNESSES:
+    status: PARTIALLY_SUPPORTED
+    text: 29个按原排名选择的可截取见证，29/29在原hull内全前景，22/29在全输入网格全前景；当前0.5连通分量分割不改变这些见证。
+    evidence_ids:
+    - EV-VIDOR-CLASS-SUPPORT-039
+    scope: 29GT/6视频；GT选见证；不等于raw分数恒定、缺少语义或普遍机制。
+  C040A_PAIRED_SUPPORT_DILUTION:
+    status: PARTIALLY_SUPPORTED
+    text: 同64视频中395条原类别几何可行且完整覆盖GT的冻结见证pair，平均关系占比由.586364降至.347017；支持长度和占比方向通过预设视频bootstrap门槛。
+    evidence_ids:
+    - EV-VIDOR-INPUT-SUPPORT-040A
+    scope: 条件群体、GT辅助见证；全部826长度区间跨零。无训练分布、因果或模型提升结论；Commander复核待独立review。
+  C040B_TRAINING_LABEL_COMPOSITION:
+    status: PARTIALLY_SUPPORTED
+    text: 256个原训练视频10493GT的标签重建中，短关系全前景22920/71896次保留目标；同3626条保留短GT的平均占比.551866→.552008。
+    evidence_ids:
+    - EV-VIDOR-TRAINING-SUPPORT-040B
+    scope: 标注/时间采样重建，不是发布checkpoint历史；无模型效果。Commander复核待独立review。
+  C040B_MAJORITY_FULL_FOREGROUND_AND_CROP_EXPLANATION:
+    status: CONTRADICTED
+    text: 该重建中短关系目标大多占满输入，且采样裁剪是平均占比上升的主要来源。
+    evidence_ids:
+    - EV-VIDOR-TRAINING-SUPPORT-040B
+    reason: 全前景少于一半；同保留GT前后变化很小，整体上升主要伴随筛选群体改变。
+    scope: 限定本次源绑定256视频重建；不排除个例或其他机制。
+  C041_FIXED_CONTEXT_CROP_STABLE_GAIN:
+    status: UNVERIFIED
+    text: 固定目标证据的041裁剪操作能够稳定改善关系内外区分并形成总体检测收益。
+    evidence_ids:
+    - EV-VIDOR-CONTEXT-SUPPORT-041
+    reason: 主区分差+.000403，视频区间[-.021050,+.020333]；未通过预设门槛。候选7/67→9/67，新增4损失2，不是正式召回或mAP。
+    scope: GT辅助固定67条/14视频；Commander复核，独立review待补。
+  C041_FIXED_CROP_GRID_OUTPUT_GAP:
+    status: PARTIALLY_SUPPORTED
+    text: 041同67条中原网格与裁剪网格均66条可行；裁剪后55/67条网格可行但9个query均无几何匹配hull，2/67因谓词前6过滤，9/67有正确谓词候选。
+    evidence_ids:
+    - EV-VIDOR-CONTEXT-SUPPORT-041
+    scope: 事后oracle诊断，不能理解成可恢复66条或已定位唯一机制。
+  C042_VALID_LENGTH_FOCAL_WEIGHT:
+    status: PARTIALLY_SUPPORTED
+    text: 绑定非fuzzy实现中原训练focal相对有效长度平均缩放V/512而Dice不变；040B重建短关系平均倍数.123821，长关系.252792。
+    evidence_ids:
+    - EV-VIDOR-MASK-LOSS-042
+    scope: 源码原函数和标签采样重建；非checkpoint历史或检测因果，Commander复核待独立review。
+  C042_DIRECT_EXPANSION_REWARD:
+    status: CONTRADICTED
+    text: 对固定二值GT，原输出层focal/Dice直接奖励目标外激活并推动区间外扩。
+    evidence_ids:
+    - EV-VIDOR-MASK-LOSS-042
+    reason: 解析梯度与576query反事实检查均指向降低目标外logit；0/105885错误方向。不能据此保证共享参数训练或泛化正确。
+  C043_LENGTH_NORMALIZATION_NATIVE_GAIN:
+    statement: Within fixed native representations,32 training-video quota and500-step
+      mask_embed-only training, valid-length focal normalization improves shortC over
+      original/global/untrained while preserving overall native64 mAP andTop100.
+    status: CONTRADICTED
+    evidence_ids:
+    - EV-VIDOR-NATIVE-MASK-TRAINING-043
+    scope: ONLY_FROZEN_043_SMALL_TRAINING_SETUP
+    qualification: single seed, exposed64; no claim about all temporal localization
+      or original full training history
+  C043_GT_DEV_DIAGNOSIS_NOT_NATIVE_GAIN:
+    statement: GT-entity and GT-best-query diagnostic threshold availability increases124/169
+      to129/169 forglobal andvalid, but native64 shortC remains0/794 andmAP decreases.
+      Different cohorts do not isolate input-domain causality.
+    status: SUPPORTED
+    evidence_ids:
+    - EV-VIDOR-NATIVE-MASK-TRAINING-043
+    scope: 043 exact cohorts; candidate availability diagnostic, not one-to-one detection
+      recall
+  C044_CHANGED_OUTPUTS_NOT_DETECTION_GAIN:
+    status: SUPPORTED
+    text: 043有效长度归一化Top100忽略分数后1018/6400条完整关系记录改变，但正式Top100新增0、损失0；三训练臂短C恢复均0/794。
+    evidence_ids:
+    - EV-VIDOR-COHORT-OUTPUT-044
+    - EV-VIDOR-NATIVE-MASK-TRAINING-043
+    scope: 冻结043的64视频；记录变化不是query对应或机制证据；Commander复核，独立review待补。
+  C044_UNPAIRED_INPUT_DOMAIN_EXPLANATION:
+    status: UNVERIFIED
+    text: GT开发集诊断改善而原生检测不变，是输入域差异抵消了收益。
+    evidence_ids:
+    - EV-VIDOR-COHORT-OUTPUT-044
+    reason: GT-dev8、native64、旧GT27两两视频无交集，且二值mask存在性与正式TopK管道匹配指标不同。
+  C045_LOSS_DIAGNOSTIC_EXCLUSIONS:
+    status: SUPPORTED
+    text: GT输入64条候选损失中，放宽身份和去除min5额外可达均0/64；理想网格标签可达64/64；61条可完整替换GT框的native见证区间仍61/61达标。
+    evidence_ids:
+    - EV-VIDOR-GT-LOSSES-045
+    scope: 非随机27视频oracle候选存在性；Commander复核，非模型恢复，独立review待补。
+  C045_INPUT_SUPPORT_ASSOCIATION:
+    status: PARTIALLY_SUPPORTED
+    text: native可达683条中，损失64条GT/native支持长度比中位数3.014862，保留619条1.032520；GT更长分别64/64和473/619。
+    evidence_ids:
+    - EV-VIDOR-GT-LOSSES-045
+    scope: 事后GT选择native见证，按关系等权；不隔离上下文因果或确立新架构。
+  C046_BOUNDARIES_HAVE_NET_CONTRIBUTION:
+    status: SUPPORTED
+    text: 固定原生64视频Top200候选与排名，完整输入网格替换边界使Top100从298/1985降至284/1985，新增3损失17；mAP从0.112319986752降至0.110235166849。
+    evidence_ids:
+    - EV-VIDOR-SUPPORT-BOUNDARY-046
+    scope: 同一曝光队列上的输出边界消融；保留原mask候选准入，不等于完全删除时间头；独立Reviewer待补。
+  C046_UNIFORM_SUPPORT_NO_SHORT_RECOVERY:
+    status: SUPPORTED
+    text: 同一固定消融中，短关系68/867→57/867，新增0损失11；原短C正确数0/794→0/794。
+    evidence_ids:
+    - EV-VIDOR-SUPPORT-BOUNDARY-046
+    scope: 本版本统一扩展停止；不据此否定所有时间定位方法。
+  C047_NATIVE_THRESHOLD_FAMILY_GAP:
+    status: SUPPORTED
+    text: 原生64视频目标186中，任意相容query/logit阈值可达80/186，剩余106/186跨23视频；后者41/106在Top100已有正确三元组及网格可行实体对。
+    evidence_ids:
+    - EV-VIDOR-NATIVE-THRESHOLD-047
+    scope: GT-assisted existential diagnosis; exposed64, no new detector or independent
+      generalization
+  C047_THRESHOLD_OPPORTUNITY_NOT_RECOVERY:
+    status: SUPPORTED
+    text: 固定保存Top100正确候选，186中阈值可达10/186；全体默认逐GT可达299/1985→344/1985，新可达45损失0；实际一对一基线298/1985未改变。
+    evidence_ids:
+    - EV-VIDOR-NATIVE-THRESHOLD-047
+    scope: Per-GT oracle can assign incompatible choices acrossGT; zero losses by
+      nesting, not a deployed intervention
+  C048_DISJOINT_REPLICATION:
+    status: SUPPORTED
+    text: 追加64视频/2754GT：目标155中全部相容query任意logit阈值不可达72，跨32视频；其中40已有正确三元组和网格可行pair进入Top100。
+    evidence_ids:
+    - EV-VIDOR-NATIVE-THRESHOLD-048
+    scope: GT-assisted oracle on frozen T/U/V, excluding29 initially raw-hull-numerically-uncertain
+      GT including19 shortC. Disjoint but previously aggregate-exposed validation;
+      not actual recovery. Scope clarified by EV-VIDOR-TEMPORAL-AUDIT-056.
+  C049_BOUNDARY_PILOT_NEGATIVE:
+    status: SUPPORTED_NEGATIVE
+    text: 固定候选049：原64 Top100 298/1985→281/1985（+5/−22）；追加64 290/2754→271/2754（+2/−21）；短C恢复3/794与2/956，但U/V均0且两组mAP下降。
+    evidence_ids:
+    - EV-VIDOR-BOUNDARY-READOUT-049
+    scope: Single fixed small pilot; no claim all boundary modeling is invalid
+  C050_BOUNDARY_TRAINING_DEFICIT:
+    status: SUPPORTED_WITHIN_FIXED_DIAGNOSTIC
+    text: 049最终边界头在训练GT分配query诊断中384/563低于原mask458/563（+13/−87），开发85/169低于121/169（+2/−38）；训练外泛化不是全部差距的唯一来源。
+    evidence_ids:
+    - EV-VIDOR-BOUNDARY-CHECKPOINT-050
+    scope: Visible sampled tIoU at0.5; not official vIoU or a unique cause
+  C051_FIXED_READOUT_LOCAL_ONLY:
+    status: SUPPORTED_WITHIN_GT_MATCHED_DIAGNOSIS
+    text: 049新头固定后验MBR训练406/563、开发96/169，虽高于自身MAP384/563、85/169，仍低于原mask458/563、121/169；内部前16候选覆盖29/112、8/52均低于五次时间置换。
+    evidence_ids:
+    - EV-VIDOR-ENDPOINT-POSTERIOR-051
+    scope: GT-matched sampled temporal diagnosis and oracle candidate coverage, not
+      native performance
+  C052_NATIVE_INTERIOR_ASSOCIATION:
+    status: SUPPORTED_AS_CONDITIONAL_ASSOCIATION
+    text: 047/048原生G内内部起止漏检99/142与93/133；按谓词、关系时长档、输入采样长度档控制后，漏检率差仍为正，共同支持343/478与374/478；固定V内部38/41与34/40。
+    evidence_ids:
+    - EV-VIDOR-NATIVE-WINDOW-052
+    scope: GT-conditioned candidate availability; not causal or new detection improvement
+  C053_POSITION_REPAIR_GATE_FAILED:
+    status: SUPPORTED_WITH_OPERATOR_SPECIFIC_SCOPE
+    text: 053固定原候选主门槛两批均失败；047固定匹配10/82到L10/R9，048为9/77到L10/R9。全query增加不能直接作为语义恢复，因为固定原输出的同回映射null有相近覆盖。
+    evidence_ids:
+    - EV-VIDOR-NATIVE-POSITION-053
+    scope: GT-assisted reordering diagnosis; not full benchmark and not pure position
+      causality
+  C054_FULL_STATIC_RETENTION_GATE_FAILED:
+    status: SUPPORTED_WITH_OPERATOR_SPECIFIC_SCOPE
+    text: 054时间均值输入完整流程：047 Top100 298/1985→289/1985（+8/−17）、mAP 0.112320→0.109386；048为290/2754→291/2754（+17/−16）、mAP
+      0.099002→0.101312。预定联合门槛两批均未通过。
+    evidence_ids:
+    - EV-VIDOR-TEMPORAL-MEAN-054
+    scope: Exposed validation input ablation; paired mAP intervals cross zero; no
+      adopted method or independent generalization.
+  C054_FIXED_SLOT_MASK_RETENTION:
+    status: SUPPORTED_WITHIN_FIXED_SLOT_DIAGNOSIS
+    text: 固定原类别、分数及Top100旧名额，仅替换均值输入mask：原正确保留295/298、287/290；新增4/1985与8/2754，损失3/1985与3/2754；内部G原正确保留42/43、39/40；V恢复仍0/41、0/40。
+    evidence_ids:
+    - EV-VIDOR-TEMPORAL-MEAN-054
+    scope: Diagnostic old-slot matching, not full M R@100; same query row may change
+      semantic role, no unique module attribution.
+  C055_FIXED_DIFFERENCE_NOT_ADMITTED:
+    status: SUPPORTED_WITHIN_DIAGNOSTIC_SCOPE
+    text: 055固定差分D=B−M在65/142及61/133条内部G上，真实AUC平均提高0.036021、0.050828，但两批差值区间均跨0；主要校正终点第二批区间亦跨0，预定跨批次门槛未通过。停止此版本差分读出。
+    evidence_ids:
+    - EV-VIDOR-DYNAMIC-RESPONSE-055
+    scope: Score alignment, not one-to-one detection, no new correct-mask or mAP result.
+      Hypothesis remains inconclusive rather than proven false.
+  C055_V_SECONDARY_SIGNAL:
+    status: PARTIALLY_SUPPORTED
+    text: 055最难V支持33/41、30/40；校正终点Δ分别+0.083957、+0.127605，本次区间下界高于0，但真实AUC差区间两批均跨0。保留次要正信号，不能覆盖未通过的主门槛或声称V已恢复。
+    evidence_ids:
+    - EV-VIDOR-DYNAMIC-RESPONSE-055
+    scope: Prespecified secondary groups on repeatedly exposed validation; no mask
+      decoding or full benchmark.
+  C056_FIXED_CANDIDATE_OPPORTUNITY_SCOPE:
+    status: SUPPORTED_WITHIN_FIXED_DIAGNOSTIC
+    text: 两批C共4077条，固定输入不可行2795/4077；原Top100正确三元组pair任意网格区间机会348/4077、任意logit阈值机会84/4077。逐GT上界不是可同时恢复数。
+    evidence_ids:
+    - EV-VIDOR-TEMPORAL-AUDIT-056
+    scope: 128 exposed validation videos; ordered descriptive conditions, not causal
+      failure shares.
+  C056_048_NUMERICAL_EXCLUSION_DISCLOSURE:
+    status: SUPPORTED
+    text: 048初始29/2754条raw_hull_numerically_uncertain未进入冻结T/U/V，其中19条短C；全部来自1视频，保留全体分母及未决状态。旧155/72/40结果不改。
+    evidence_ids:
+    - EV-VIDOR-TEMPORAL-AUDIT-056
+    scope: Legacy bucket exclusion established by056. Raw-hull uncertainty subsequently
+      closed by EV-VIDOR-NUMERIC-CLOSURE-057; historical exclusion and old frozen
+      cohort still preserved.
+  C057_NUMERICAL_SCOPE_CLOSED:
+    status: SUPPORTED_WITHIN_FIXED_GUARD
+    text: 048初始29条raw-hull未决全部闭合：26条默认query区间缺口、3条网格不可行；CUDA保存候选200/200完全复现，旧guard允许的86159个区间均无匹配。
+    evidence_ids:
+    - EV-VIDOR-NUMERIC-CLOSURE-057
+    scope: Single video, frozen outputs and legacy FLOAT_GUARD; not arbitrary numerical
+      perturbations or model improvement.
+  C057_EXTENDED_COHORT_VERSION:
+    status: SUPPORTED_AS_DIAGNOSTIC_MEMBERSHIP
+    text: 旧048 T/U/V=155/72/40不变；单列extended_verified_v1为172/81/40，新增17/9/0；不得把旧干预的分母换成新群体。
+    evidence_ids:
+    - EV-VIDOR-NUMERIC-CLOSURE-057
+    scope: No new detection result; hardest V size unchanged.
+  C058_PATH_INTERVENTION_RESULTS:
+    status: SUPPORTED_WITHIN_FIXED_OPERATOR
+    text: '047 BM: Top100 293/1985 (+1/-6); short +0/-3; fixed V 0/41.; 047 MB: Top100
+      289/1985 (+8/-17); short +3/-11; fixed V 0/41.; 047 MM: Top100 289/1985 (+8/-17);
+      short +3/-11; fixed V 0/41.; 048 BM: Top100 287/2754 (+2/-5); short +1/-1; fixed
+      V 0/40.; 048 MB: Top100 290/2754 (+16/-16); short +3/-7; fixed V 0/40.; 048
+      MM: Top100 291/2754 (+17/-16); short +4/-7; fixed V 0/40.'
+    evidence_ids:
+    - EV-VIDOR-FACTORIAL-PATHS-058
+    scope: Full and fixed-slot metrics separated; validation repeatedly exposed; no
+      unique root-cause attribution or adopted method.
+  C058_FROZEN_GATE:
+    status: SUPPORTED
+    text: STOP_MEAN_ORIGINAL_PATH_MIXING
+    evidence_ids:
+    - EV-VIDOR-FACTORIAL-PATHS-058
+    scope: Only the frozen mean/original cross intervention and operational continuation
+      gate.
+  C059_INPUT_DEDUP_SMALL_OPPORTUNITY:
+    status: SUPPORTED_WITHIN_FIXED_DIAGNOSIS
+    text: 取消原输入去重：9270→9990合法pair，原1159不可行中新增6条网格机会，均为短C，来自3视频/3删除轨迹；未通过50条/10视频门槛。
+    evidence_ids:
+    - EV-VIDOR-INPUT-PAIR-FILTER-059
+    scope: Oracle opportunity, no new prediction, mAP or generalization.
+  C059_SINGLE_ENTITY_NECESSITY:
+    status: SUPPORTED_WITHIN_FIXED_GEOMETRY_AND_CLASSES
+    text: 原1159输入不可行中，1105至少一端无正确类别的单轨迹可行区间；12无不同可行轨迹、36无共同区间、6受去重排除。短C对应485/507、6/507、10/507、6/507。
+    evidence_ids:
+    - EV-VIDOR-INPUT-PAIR-FILTER-059
+    scope: Categories, raw boxes, per-GT full volume fixed; not pure tracking attribution
+      or semantic identity proof.
+  C060_ENDPOINT_REASSOCIATION_OPPORTUNITY:
+    status: SUPPORTED_WITHIN_FIXED_DIAGNOSIS
+    text: 060保持类别的逐帧取框令121/1105目标关系两端分别可行，20视频；短36/485。SF150、FF331、FF仍失败774。尚无共同时间/不同实体保证或实际预测提升。
+    evidence_ids:
+    - EV-VIDOR-OBSERVATION-ASSOCIATION-060
+  C061_JOINT_GEOMETRY_WITNESSES:
+    status: SUPPORTED_WITHIN_FIXED_DIAGNOSIS
+    text: 061在060的121条C机会中找到108条共同时间、不同来源ID的管道几何见证，20视频；短31条。10条上界排除，3条未决。未获得实际关系预测或mAP增益。
+    evidence_ids:
+    - EV-VIDOR-JOINT-ASSOCIATION-061
+  C062_BOUNDED_ASSOCIATION_OPPORTUNITY:
+    status: SUPPORTED_WITHIN_FIXED_GEOMETRY_DIAGNOSIS
+    text: K1在121条C中有80条联合见证/14视频，27短；66条弱身份兼容、11其他ID众数、3未明，严格逐帧目标唯一7条。99/102关系计数切换有支持重叠，去重40/41。未得到实际检测提升。
+    evidence_ids:
+    - EV-VIDOR-BOUNDED-ASSOCIATION-062
+  C062_PRIOR_CASE_IDENTITY_CAUTION:
+    status: SUPPORTED_GT_IOU_PROXY_FINDING
+    text: 061的1007_5544341146 GT121例子，主体切换后3帧中2帧唯一最佳IoU属于另一GT0、1帧属于目标GT1；不能把几何通过作为身份连续证明。
+    evidence_ids:
+    - EV-VIDOR-BOUNDED-ASSOCIATION-062
+    - EV-VIDOR-JOINT-ASSOCIATION-061
+  C063_CONFIDENCE_SEAM_CONTROL_RESULT:
+    status: SUPPORTED_WITHIN_FIXED_DIAGNOSIS
+    text: 063固定64视频1985GT、C1660：Q新增31条网格机会/9视频，中点39/10，五随机均值32；Q−随机率差区间跨0，Q比中点少8。新增短C3/794。无实际检测或mAP结果。
+    evidence_ids:
+    - EV-VIDOR-GTFREE-SEAM-063
+  C063_IDENTITY_PROXY_SCOPE:
+    status: SUPPORTED_WITHIN_POSTHOC_DIAGNOSTIC
+    text: Q31条新见证中29条每片段目标ID唯一众数、2条其他ID众数，6条在预测与GT关系交集内逐帧唯一匹配目标；非人工身份确认，不改变主门槛。
+    evidence_ids:
+    - EV-VIDOR-GTFREE-SEAM-063
+  C064_LOCAL_CONFIDENCE_STATIC_CONTROL:
+    status: SUPPORTED_WITHIN_IDENTITY_CONTROLLED_DIAGNOSIS
+    text: 064保留11104/64944个候选对帧、48视频190/575对；逐帧概率对随机的框IoU视频等权差+0.032377，区间为正；对固定分数+0.010360，区间跨0。不能声称时变分数具有稳定独立优势。
+    evidence_ids:
+    - EV-VIDOR-LOCAL-QUALITY-SIGNAL-064
+  C064_AGGREGATION_SCOPE_NOT_ESTABLISHED:
+    status: SUPPORTED_AS_NEGATIVE_DIAGNOSTIC_RESULT
+    text: GT身份受控局部区间内累计类别log概率，相对063全局切换的局部IoU差+0.003476，区间[−0.001548,+0.008946]；未建立聚合范围导致失败的证据。无真实预测或mAP增益。
+    evidence_ids:
+    - EV-VIDOR-LOCAL-QUALITY-SIGNAL-064
+  C065_GT_CACHE_NO_LOCALIZATION_ERROR_TARGETS:
+    status: SUPPORTED_WITHIN_AUDITED_TRAINING_CACHE
+    text: 065对40个训练来源视频核验：163576/163576个loader框来自GT，自身IoU恒为1；0/163576提供定位误差变化。不在此缓存上直接训练定位质量回归；不否定其关系掩码训练用途。
+    evidence_ids:
+    - EV-VIDOR-QUALITY-TRAINING-INPUT-065
+  C066_ORACLE_QUALITY_UTILITY_LIMIT:
+    status: SUPPORTED_WITHIN_FIXED_CANDIDATE_ORACLE_DIAGNOSIS
+    text: 066固定063候选池，真实逐帧IoU产生51条新增C几何机会，整轨平均真实IoU产生54条；逐帧相对Q新增22/损失2，相对M新增13/损失1，相对SQ新增1/损失4。LQ-M配对视频区间下界为0，未通过冻结门槛；实际模型收益未测。
+    evidence_ids:
+    - EV-VIDOR-ORACLE-QUALITY-UTILITY-066
+  C067_CROSS_PAIR_BUDGET_LIMIT:
+    status: SUPPORTED_WITHIN_FIXED_PREDICTION_INTERVENTION
+    text: 067固定原候选、分数和区间，跨ID管道NMS在047/048的Top100分别新增1/损失0与新增0/损失0；相对同ID对照均无Top100增量，短C恢复均0。mAP分别净增0.000473471和0.000625127，保留小幅正结果，但未通过恢复规模和跨ID增量门槛。
+    evidence_ids:
+    - EV-VIDOR-CROSS-PAIR-BUDGET-067
+  C068_SCORE_COMPONENT_TRADEOFF:
+    status: SUPPORTED_WITHIN_FIXED_PREDICTION_INTERVENTION
+    text: 068去实体评分在047/048的Top100新增41/损失119和新增36/损失112，mAP均下降；C恢复34/1660、31/2417，短C9/794、7/956。只看失败子组会掩盖整体下降。停止此固定去项规则，不代表所有排序方法均无效。
+    evidence_ids:
+    - EV-VIDOR-SCORE-COMPONENTS-068
+  C068_FULL_POOL_RANKING_GAP:
+    status: SUPPORTED_WITHIN_FIXED_POOL_DIAGNOSIS
+    text: 完整原预测池对558/4077条C存在匹配候选，与056/057分桶相符；555条最早正确候选在Top100外，3条属于一对一分配缺口。251/555固定代表存在严格实体项反转，但竞争者中包含其他GT的正确候选；不是可同时恢复上界或新机制收益。
+    evidence_ids:
+    - EV-VIDOR-SCORE-COMPONENTS-068
+  C069_CANDIDATE_SCREENING_ASSOCIATION:
+    status: SUPPORTED_WITHIN_FIXED_DIAGNOSTIC_SCOPE
+    text: 069在固定类别/轨迹、任意谓词和连续时间放宽下，P新名额不可匹配2584/2728、2764/2899，被挤出名额1806/2728、1979/2899；两批视频配对差区间均为正。支持原实体评分的筛选关联作用，不证明具体上游原因，也不改变068总体负结果。
+    evidence_ids:
+    - EV-VIDOR-CANDIDATE-ERROR-TYPES-069
+  C069_RELATION_ANNOTATION_SCOPE:
+    status: SUPPORTED_WITHIN_POSTHOC_DIAGNOSTIC
+    text: P新进入的5348个固定类别pair不可行候选中，2753个类别组合未出现在该视频关系GT，2595个类别组合出现而当前pair仍不匹配任意关系区间。两者都不能直接叫tracking错误，需要完整实体级标注核验。
+    evidence_ids:
+    - EV-VIDOR-CANDIDATE-ERROR-TYPES-069
+  C070_INPUT_GROUNDING_ASSOCIATION:
+    status: SUPPORTED_WITHIN_DIAGNOSTIC_SCOPE
+    text: 070固定预测时间窗，输入对应问题新入2410/2728、2514/2899，被挤出1420/2728、1425/2899；两批视频配对区间下界均为正，原H0真实ID正对照588/588保留。
+    evidence_ids:
+    - EV-VIDOR-ENTITY-GROUNDING-070
+  C070_GEOMETRY_EXCESS:
+    status: SUPPORTED_POSTHOC_DESCRIPTION
+    text: 同窗口几何未匹配新入3948/5627、被挤出1856/5627；几何可匹配后的类别不符842对822、同实体配对134对167。主要增量为几何未匹配，尚不能区分tracking、检测、时间支持、标注缺失。
+    evidence_ids:
+    - EV-VIDOR-ENTITY-GROUNDING-070
+  C071_OBSERVED_SUPPORT_NOT_MAIN_EXCESS:
+    status: SUPPORTED_NEGATIVE_RESULT_WITH_FIXED_SCOPE
+    text: 071删除缺少GT框帧的体积惩罚后，新入实体对oracle24/2728、24/2899，被挤出47/2728、63/2899；两批规模/视频数/区间门槛均未通过。原3948新入几何失败仍有3861残留。不否定全部短关系或边界问题。
+    evidence_ids:
+    - EV-VIDOR-WINDOW-GEOMETRY-071
+  C071_IDENTITY_DISPERSION_SINGLE_VIDEO:
+    status: SUPPORTED_DESCRIPTIVE_LIMITATION
+    text: 固定强身份分散画像新入17/5627、被挤出12/5627，全部来自047视频1007_5544341146，048为0；不支持普遍tracking
+      switch或关系re-binding结论。
+    evidence_ids:
+    - EV-VIDOR-WINDOW-GEOMETRY-071
+  C072_DENSE_PAIR_ENTRY_FAILS:
+    status: SUPPORTED_NEGATIVE_ENTRY_RESULT
+    text: 原>9关系整pair训练过滤存在，但072两批dense输入可行C只有7/501、45/781，条件对照支持8GT/1视频、49GT/3视频；现有训练69/1237dense、开发0/827dense。三个准入门槛均失败，不能据此增加query训练。
+    evidence_ids:
+    - EV-VIDOR-PAIR-DENSITY-072
+  C072_TRAINING_TARGET_VS_INFERENCE_CAPACITY:
+    status: SOURCE_VERIFIED_SCOPE_LIMIT
+    text: 原训练九query一对一匹配并过滤>9GT的连续实体对；推理每query可输出Top6谓词，GT pair还可有多个proposal pair。不能将>9GT直接称完整系统最多只能输出9条关系。
+    evidence_ids:
+    - EV-VIDOR-PAIR-DENSITY-072
+  C073_LONG_COEXISTENCE_SHORT_RELATION_SCOPE:
+    status: SUPPORTED_WITHIN_OBSERVED_DATA
+    text: 关系不足3秒且GT连续共同支持至少10秒的3055条中，共同漏检2982条；已详细覆盖331条中148条时间输出缺口、124条输入不可行。该子集比例不外推为全量机制分布。
+    evidence_ids:
+    - EV-VIDOR-EVENT-SUPPORT-073
+  C073_FIXED_TOP100_TEMPORAL_OPPORTUNITY:
+    status: SUPPORTED_WITHIN_DIAGNOSTIC_SCOPE
+    text: 325条已覆盖目标共同漏检中，固定原Top100候选身份的任意网格时间机会69条，原query阈值机会6条。69与148时间分桶交集64，不是嵌套群体；逐GT机会不能称同时恢复或方法增益。
+    evidence_ids:
+    - EV-VIDOR-EVENT-SUPPORT-073
+  C073_HISTORY_OPERATION_BELOW_EFFECT:
+    status: SUPPORTED_NEGATIVE_RESULT_WITH_FIXED_SCOPE
+    text: 87事件19视频中，旧事件8点历史替换的off均值-0.002049、restart均值-0.001680，两个视频bootstrap区间上界均低于预设+0.03分数门槛；N/P短下一事件区间候选均1/28，与B相同。仅支持此操作未达到效应门槛，不证明所有历史作用不存在。
+    evidence_ids:
+    - EV-VIDOR-EVENT-SUPPORT-073
+  C073_MEMORY_METHOD_OR_FORMAL_GAIN:
+    status: UNVERIFIED
+    text: 关系状态保留、失效和重启机制能够改善短关系且保留持续关系、提高正式总体指标。
+    evidence_ids:
+    - EV-VIDOR-EVENT-SUPPORT-073
+    missing_evidence: 当前历史操作未获得机制准入；40事件持续谓词分数辅助不等于遮挡记忆或正式性能保护。没有训练新方法或在原生GT-free输入上评价总体提升。
+metadata:
+  supported_statuses:
+  - PLANNED
+  - UNVERIFIED
+  - PARTIALLY_SUPPORTED
+  - SUPPORTED
+  - CONTRADICTED
+  - DROPPED

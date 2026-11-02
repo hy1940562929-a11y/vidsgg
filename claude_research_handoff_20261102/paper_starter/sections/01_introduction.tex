@@ -1,0 +1,27 @@
+\section{Introduction}
+Video visual relation detection describes who interacts with whom, through which
+predicate, and during which interval. Entity co-presence and relation occurrence
+are distinct temporal quantities: two objects can remain visible while a
+particular interaction appears only briefly. A useful detector must recover that
+brief occurrence without fragmenting relationships that genuinely persist.
+
+VrdONE jointly predicts predicates and instance masks, while BIG separates
+classification from multi-instance temporal grounding~\cite{vrdone,big}.
+SegPVSG explicitly localizes salient segments before recognition~\cite{segpvsg}.
+These approaches establish temporal modeling as an existing capability, making a
+generic claim of ``adding temporal localization'' insufficient.
+
+Our starting observation comes from a fixed VidOR comparison. At Top100, both
+BIG and VrdONE miss 25,373 of 30,142 annotated instances. In the subsecond group,
+3,151 of 3,167 instances are jointly missed. This paired comparison describes
+released systems under their existing inputs; it is not an architecture-only
+controlled comparison. Subsequent fixed-entity diagnostics narrow the problem:
+on a selected 400-instance persistent-pair short-event cohort, native hull
+intervals cover 47 instances, while a fixed single-component rule covers 53.
+Neither result is official predicate-aware relation detection.
+
+We ask how to recover supported brief occurrences under an unchanged prediction
+budget while retaining enduring relations. The central design must specify why
+its selected boundaries follow predicate evidence, and its evaluation must
+distinguish localization improvements from extra candidates or changed scores.
+\Missing{Finalize contributions after method implementation and evaluation.}

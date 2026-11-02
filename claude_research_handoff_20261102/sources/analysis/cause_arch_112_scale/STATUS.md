@@ -1,0 +1,2 @@
+# REJECT / EFFECT_TOO_SMALL_OR_UNSTABLE (SCALE_FALSIFIED)
+E112-SCALE：15/15；eta≈0.001；T−X 多为负。小尺度 underpowered+ 已证伪。

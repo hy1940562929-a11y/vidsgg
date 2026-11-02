@@ -1,0 +1,3 @@
+# REJECT / EFFECT_TOO_SMALL_OR_UNSTABLE
+
+E108 DN_SHORT：训练 9/9。residual334 T−N = +2/0/−2；eta(T,N)=0。已按合同停止。

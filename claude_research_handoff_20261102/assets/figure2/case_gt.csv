@@ -1,0 +1,11 @@
+﻿gt_index,subject_tid,object_tid,predicate,begin_fid,end_fid
+12,3,4,watch,34,98
+13,3,4,watch,225,236
+14,3,4,watch,511,588
+15,3,4,watch,686,705
+16,3,4,watch,979,998
+17,3,4,watch,1184,1210
+18,3,4,watch,1440,1474
+19,3,4,watch,1626,1649
+20,3,4,speak_to,17,106
+29,3,4,next_to,0,1710

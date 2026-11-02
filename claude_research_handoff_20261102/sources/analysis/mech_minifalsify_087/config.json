@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "experiment_id": "VIDOR-MECH-MINIFALSIFY-087",
+  "status": "FROZEN_PRELAUNCH",
+  "device": "cuda:0",
+  "paths": {
+    "repo_root": "/root/rebinding_project/VrdONE",
+    "data_root": "/root/autodl-tmp/VrdONE-data",
+    "checkpoint": "/root/rebinding_project/VrdONE/experiments/vrdone_vidor/ckpt_vidor.pth",
+    "gt_proposals": "/root/rebinding_project/VrdONE/datasets/vidor/features/gt_per_video_val_strict27",
+    "gt_features": "/root/rebinding_project/VrdONE/datasets/vidor/features/GT_boxfeatures_validation_strict27",
+    "annotations": "/root/rebinding_project/VrdONE/datasets/vidor/annotations/validation",
+    "cache_root": "/root/autodl-tmp/VrdONE-data/commander_mask_training_043/results_v1",
+    "train_export_root": "/root/autodl-tmp/VrdONE-data/commander_architecture_010/export_v1",
+    "vendor078": "/root/autodl-tmp/VrdONE-data/commander_mechanisms_079/code_v3/vendor078",
+    "vendor079": "/root/autodl-tmp/VrdONE-data/commander_mechanisms_079/code_v3",
+    "helper073": "/root/autodl-tmp/VrdONE-data/commander_event_support_073/code_v2",
+    "eval_locked": "/root/autodl-tmp/VrdONE-data/commander_mech_minifalsify_087/code_v1/eval_locked.csv",
+    "members": "/root/autodl-tmp/VrdONE-data/commander_mech_minifalsify_087/code_v1/members.json",
+    "eval_coordinates": "/root/autodl-tmp/VrdONE-data/commander_mech_minifalsify_087/code_v1/eval_coordinates.json"
+  },
+  "files": {
+    "source_contract043": "/root/autodl-tmp/VrdONE-data/commander_mechanisms_079/code_v3/vendor078/source_contract043.json",
+    "cache_inventory": "/root/autodl-tmp/VrdONE-data/commander_mechanisms_079/code_v3/vendor078/CACHE_INVENTORY.json",
+    "cohorts": "/root/autodl-tmp/VrdONE-data/commander_mechanisms_079/code_v3/vendor078/cohorts.json",
+    "effective_config": "/root/autodl-tmp/VrdONE-data/commander_mechanisms_079/code_v3/effective_config.json"
+  },
+  "source_contract": "/root/autodl-tmp/VrdONE-data/commander_mechanisms_079/code_v3/vendor078/source_contract043.json",
+  "model_config": "/root/autodl-tmp/VrdONE-data/commander_mechanisms_079/code_v3/effective_config.json",
+  "checkpoint_sha256": "4dcbc1091faf71330694fce138c3a4ff84e43ca3fb988b66fdacf26745bce627",
+  "path_remap": {},
+  "layer_probe": {
+    "steps": 500,
+    "seed": 79,
+    "learning_rate": 0.001,
+    "wall_seconds": 1200,
+    "bootstrap_reps": 10000,
+    "bootstrap_seed": 87
+  },
+  "scope": {
+    "allow_full_benchmark": false,
+    "allow_checkpoint_overwrite": false,
+    "semantic_off_labels_available": false,
+    "label_interpretation": "VidOR annotation recoverability; not verified semantic absence",
+    "training_split": "official-training-source32+8; checkpoint pretraining may have seen adapter_dev",
+    "sampling_split": "previously exposed strict27 diagnostic videos"
+  },
+  "bootstrap_seed": 87
+}

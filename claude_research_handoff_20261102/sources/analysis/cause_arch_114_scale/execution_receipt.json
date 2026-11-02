@@ -1,0 +1,31 @@
+{
+  "experiment": "E114-SCALE",
+  "hypothesis": "H114-SCALE",
+  "verdict": "REJECT",
+  "subcause": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "scale_falsified_small_positive": true,
+  "family_closed": "temporal_giou_matching_only",
+  "residual334_T_minus_N": [
+    4,
+    10,
+    -8,
+    0,
+    11
+  ],
+  "residual334_T_minus_X": [
+    -4,
+    7,
+    -2,
+    -12,
+    1
+  ],
+  "eta_T_N": 0.011455525606469001,
+  "eta_T_X": -0.0068634179821551134,
+  "macro_eta_T_N": 0.014248252798617637,
+  "macro_eta_T_X": 0.004180264831251404,
+  "contract_sha256": "a4f62c08b696b7c1cd7cce8bafa3ef98e235224837869e65f1550234bc154229",
+  "train": "15/15",
+  "optimizer_steps": 30000,
+  "autodl": "connect.bjb1.seetacloud.com:16241",
+  "sealed_at_america_new_york": "2026-10-21 13:00:00 EDT"
+}

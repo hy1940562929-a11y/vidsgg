@@ -1,0 +1,16 @@
+{
+  "experiment": "E110-DUR-MATCH",
+  "hypothesis": "H110",
+  "verdict": "REJECT",
+  "subcause": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "contract_sha256": "a46af6a0a8be825ef1b0a0ec69cac5f6176d5be936d7cdab806499dc870d36c9",
+  "train": "9/9",
+  "residual334_T_minus_N": [
+    3,
+    6,
+    7
+  ],
+  "eta_T_N": 0.01805869074492099,
+  "autodl": "connect.bjb1.seetacloud.com:16241",
+  "sealed_at_america_new_york": "2026-10-21 08:51:34 EDT"
+}

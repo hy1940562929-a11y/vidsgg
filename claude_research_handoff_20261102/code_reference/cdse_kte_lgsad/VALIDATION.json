@@ -1,0 +1,24 @@
+{
+  "status": "SOFTWARE_CHECKS_PASS",
+  "checked_at_utc": "2026-10-29T13:47:35.035996+00:00",
+  "research_result": false,
+  "device": "cpu",
+  "synthetic_features_anchors_and_random_native_weights": true,
+  "python_version": "3.11.17",
+  "python_executable": "/Users/xk/miniconda3/envs/ml/bin/python",
+  "torch_version": "2.2.2",
+  "tests_run": 29,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "syntax_check": "AST_PARSE_PASS",
+  "native_source_root": "/Users/xk/Documents/ChatGPT/cvpr-agent-lab/handoff/incoming/VIDOR-NATIVE-FEATURE-CURRENT-030/full_v1/results_v1/source_snapshot",
+  "limitations": [
+    "No real data or GPU experiments were run.",
+    "No trained native checkpoint was evaluated.",
+    "Real CLIP anchor extraction was not run; no local CLIP encoder was installed.",
+    "Software checks do not demonstrate accuracy gains, mechanism validity, or novelty.",
+    "Native interval hull decoding remains unchanged."
+  ],
+  "smoke_status": "SOFTWARE_SMOKE_PASS"
+}

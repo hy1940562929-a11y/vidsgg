@@ -1,0 +1,236 @@
+[
+  {
+    "experiment_dir": "cause_arch_092",
+    "label_reported": "NOT_RUN_MISSING_CACHE",
+    "subreason": "",
+    "first_1500_chars": "# 092 判决\n\nNOT_RUN_MISSING_CACHE\n\n训练所需完整同源缓存未在本地可用，最近授权AutoDL地址连接被拒绝，远程文件状态未知。材料门槛未通过，未训练、未评价干预效果。详见[STATUS.md](STATUS.md)与[material_audit.json](material_audit.json)。\n\n不构成原因证伪或架构效果判决；不启动下一实验。\n",
+    "source": "sources/analysis/cause_arch_092/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "48faf1aa62a9e410b6136f97c491bc83aa744c99f13acd8d7e29d19cf236d62b"
+  },
+  {
+    "experiment_dir": "cause_arch_095_e091",
+    "label_reported": "NOT_SUPPORTED_STOP_THIS_CAUSE_RECIPE",
+    "subreason": "",
+    "first_1500_chars": "# E091-GEOMETRY-CONTRACT 最终判决\n\n**NOT_SUPPORTED_STOP_THIS_CAUSE_RECIPE**\n\n本次已修复原生计算布局，1725/1725缓存重建最大绝对误差均为0；固定A/B/S × seed90/91/92全部完成500步训练、预测封存与既定评价。前次技术失败保留在 `attempt_v1/` 和 `results_v1/`；本次有效结果在 `results_v2/`。\n\n## 触发的冻结出口\n\n按091 §5.5优先级2，主组400条、23视频等权的P改善，只要任一规定比较的95% CI上界低于+5pp，就停止本配方。本次三项均触发：\n\n| 比较 | 差值 | 95% CI |\n|---|---:|---:|\n| B−A | +0.7743 pp | [0, +1.7060] pp |\n| B−S | −0.1753 pp | [−2.2636, +1.9600] pp |\n| B−Z | +1.1494 pp | [+0.2899, +2.2102] pp |\n\nB的P命中为14/400、14/400、14/400；其对Z的微小收益保留，但不足以通过既定门槛，也未稳定优于伪几何S。原334残余失败的B命中分别只有1/334、0/334、0/334。E、C、保护组与null也未同时通过。\n\n## 结论范围\n\n停止当前冻结分支、数据与500步预算下的几何监督配方。不能把本结果写成“完整原因已识别”，不能以局部新增替代总体有效，也不能据此否定所有几何监督。\n\n未放宽4e-6、修改成员、旧F、三臂、训练规则或统计出口；未改RQ、未采纳M091，未新增后续实验。\n\n证据：[REPORT.md](REPORT.md)、[重建诊断](rebuild_diagnosis.md)、[原始统计](results_v2/evaluation/summary.json)、[逐GT结果](results_v2/evaluation/per_gt.csv)、[导入SHA](import_receipt_v2.json)、[独立复核](REVIEW_v2.md)。\n\n独立审查 `PASS_WITH_CONCERNS`，无收尾阻断。本轮到此停止。\n",
+    "source": "sources/analysis/cause_arch_095_e091/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "e8166fbd2b5f2d11f2356aba90570cac700e1aefba7df42f8ce1c72b58a64bda"
+  },
+  {
+    "experiment_dir": "cause_arch_097_e097",
+    "label_reported": "REJECT",
+    "subreason": "SCOPE_CAPACITY_CONFLICT",
+    "first_1500_chars": "# E097 最终判决\n\n**REJECT**\n\n子因：**SCOPE_CAPACITY_CONFLICT**。\n\n按冻结合同训练前容量门槛：原334条残余中，固定旧F、原H准入、同slot最多一个合法区间时，C0命中0/334；即使GT oracle择优，最大净恢复也只有 **149/334＝44.61%（149/334）**，不超过停止门槛167/334。\n\n因此本轮不进入三路训练。**L/X/G训练0/9，更新0步；原生重建、AUROC、撤回/恢复和保护组效果均NOT_RUN。** 服务器/GPU连接成功，不是连接失败，也不是模型训练阴性。\n\n当前固定输出容量不能满足“多数残余净恢复”的主原因接纳目标。不能由此否定局部状态对照的作用，也不能宣称已找到所有短关系的完整根因。M097未采纳；E091几何主配方未复活。未改旧F、成员、原H准入、4e-6或RQ；不排队后续实验。\n\n证据：[REPORT.md](REPORT.md)、[容量结果](capacity_audit.json)、[逐slot](capacity_per_slot.csv)、[冻结协议](PROTOCOL.md)、[独立复核PASS](REVIEW.md)。\n\n本唯一任务执行到合同规定的停止出口，写完判决即停。\n",
+    "source": "sources/analysis/cause_arch_097_e097/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "e85e12e3810c8a61dedac948a8a156e2102080b3456e5f367d32e26858b50825"
+  },
+  {
+    "experiment_dir": "cause_arch_098_e098",
+    "label_reported": "REJECT",
+    "subreason": "UNDERREADING_NOT_ESTABLISHED",
+    "first_1500_chars": "# E098-JOINT-READING 最终判决\n\n**REJECT**\n\n子因：**UNDERREADING_NOT_ESTABLISHED**。\n\n按[冻结合同](PROTOCOL.md)的训练前现象门槛，334残余中低读取（R<0.5）仅为 **47/334＝14.07%（47/334）**，23视频整簇bootstrap的95%CI为 **[9.95%,18.55%]**（原值[0.0994757166,0.1854641644]）。合同要求CI下界>0.50，实际未通过。CI为10,000次整视频重采样的分位数，不对应单一整数分子/分母。\n\n连接与GPU正常；原生N重建 **1725/1725批max abs=0**，4e−6门槛、类别排序和mask二值检查通过。新9-slot容量门槛也通过：334组U9=331/334，新协议C0命中29/334，可达缺口302/334。本轮没有再次撞上E097旧F/原H的149/334容量墙。\n\n**N/J训练0/6，参数更新0步。** J算子效果、500步训练、撤回/恢复、训练后AUROC和保护组结果均NOT_RUN。这不是服务器故障，也不是“J训练无效”的阴性结果。\n\n停止的是H098所要求的“严重低读取系统性覆盖多数残余”前提及当前原因配方。不能扩大成“注意力分配没有问题”“短关系语义证据充分”或“完整根因已识别”；M098不采纳。\n\nE091几何主配方未复活，E097未原样重跑；未改成员、阈值、query数、容差或RQ。独立结果复核 **PASS**。不启动训练、不追加实验、不自动排队后续任务。\n\n证据：[REPORT.md](REPORT.md)、[低读取汇总](results_v1/admission_v1/underreading_audit.json)、[逐GT分数](results_v1/admission_v1/per_gt_reading.csv)、[容量账](results_v1/admission_v1/capacity_audit.json)、[原生重建](results_v1/preflight_v1/status.json)、[材料身份](results_v1/admission_v1/material_identity.json)、[导入SHA](import_receipt.json)、[本地自检](selfcheck.json)。\n\n写完本判决即停。\n",
+    "source": "sources/analysis/cause_arch_098_e098/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "7ebbedfa73b4040d3b0dc36913fc941e70cb37d0f4a03e241191f07ea3563231"
+  },
+  {
+    "experiment_dir": "cause_arch_099_e099",
+    "label_reported": "REJECT",
+    "subreason": "INTERFERENCE_NOT_ESTABLISHED",
+    "first_1500_chars": "# REJECT\n\n**子因：INTERFERENCE_NOT_ESTABLISHED**\n\n实验：E099-GRADIENT-ROUTING，FIX_RERUN，结果位于results_v2/。\n\n修复Tensor损失接口后，12/12项测试、1,725/1,725批原生重建（最大误差0）、联合容量及dev共同支持均通过。C0完成88/88方向、264次虚拟更新、169个dev事件。\n\n共同支持为5视频、27短/46长。预设短组必要条件：\n\n- d(O,P)=−0.0000875298，95% CI [−0.0002721883, +0.0000180184]，未满足下界>0。\n- d(W,P)=−0.0000774707，95% CI [−0.0002447235, +0.0000185203]，未满足下界>0。\n\n负梯度内积和短−长差虽通过各自条件，但不足以替代上述必要收益。短−长差为正来自P对长组更差，不能写成短组已经获益。\n\n依据原合同§7及冻结准入顺序，**本轮停止，正式三臂训练0/9**。没有训练后效果数字，不能认定完整根因或采纳M099；不追加实验或排队新原因。\n\n原TECHNICAL_FAILURE保留在[旧判决](results_v1/execution_snapshot/VERDICT.md)；该错误已修复，本轮出口是有效C0测量后的REJECT。完整证据、原始账及解释见[REPORT.md](REPORT.md)。\n",
+    "source": "sources/analysis/cause_arch_099_e099/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "942285c7b2a1487397be5838384564da9951ce15a2214a39672c37bbf9decb97"
+  },
+  {
+    "experiment_dir": "cause_arch_100_e100",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**\n\n实验：E100-DEPTH-EVENT-ASSIGNMENT / MEMBERSHIP_EXPAND_RERUN（修订 **E100-A1**）。\n\n## 合同与成员\n\n- 原合同 SHA256 `d9e3e010a08a7822f8f0d8a1e2f50c4ed9cccb6484def3340d118809126971bc` 保留不覆盖；有效合同 = 原合同 + [CONTRACT_AMENDMENT E100-A1](attempt_04_membership_expand/CONTRACT_AMENDMENT.md)。\n- mechanism-dev：**8视频/169事件 → 16视频/302事件**（新增 8 视频 / 133 事件；名单见 [MEMBERSHIP_FREEZE](attempt_04_membership_expand/MEMBERSHIP_FREEZE.md)）。\n- §5.1 共同支持：**7 视频 / 23 短 / 37 长**（门槛 4/20/20 **PASS**）。评价切片 400/334/163/1101/2573 未改。\n\n## 技术与训练\n\n- 原生重建 **1745/1745**，max abs **0**；容量与数值修复（N_NATIVE_LOSS / RENAME_COST）保留。\n- 正式训练 **9/9**（N/T/X × seed100/101/102），各 500 步；优化器更新 **4500** 步。\n\n## 科学结果（冻结统计）\n\n334 残余上 T−N 每 seed 净增：seed100 **+6**，seed101 **0**，seed102 **−2**（未全部 >0）。\n\n| 对照 | eta 点值 | 95% CI | 净增均值 |\n|---|---:|---|---:|\n| vs N | 0.00451977 | [-0.00913277, 0.015052] | 1.333 |\n| vs X | 0.0677249 | [0.03597, 0.110545] | 21.33 |\n| vs C0 | 0.0275938 | [-0.00546734, 0.055929] | 8.333 |\n\n合同要求相对 N/X/C0 的 eta≥0.20 且 CI 下界>0、每 seed T−N 与 T−X 净增>0；**eta/seeds 未过**。主400时间/类别、§5.2 末层 AUROC/短特异性、长组与全体保护亦未同时通过（见 checks：eta/seeds/main400/mechanism/protection=false；active/headroom/true_path_better=true）。\n\n**此为在 E100-A1 修订合同下对 H100 的科学 REJECT（效果过小或不稳定），不是技术失败，也不是新假设。** 不采纳 M100；不排队 H101。\n\n证据：[summary](attempt_04_membership_expand/final_statistics/summary.json) · [verdict.json](attempt_04_membership_expand/final_statistics/verdict.json) · [REPORT](REPORT.md) · [execution_receipt](execution_rec",
+    "source": "sources/analysis/cause_arch_100_e100/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "2b7e3718e83eeae3d6d0d3336e83f65f9768085c6fc430b199392ec20441a971"
+  },
+  {
+    "experiment_dir": "cause_arch_101_e101",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（且 T 未稳定优于 N/X → 同属 TRUE_PATH_NOT_BETTER）\n\n实验：E101-DURATION-EQUAL-FOCAL。Grace/supervisor 在 Codex `usage_limit_exceeded` 后接管执行。\n\n## 合同与准入\n\n- 合同 SHA256 `66c276b98f6987839ea2b17edd61cf9a452b04935985ba42c4f287aee663dd60`。\n- 机制-dev 继承 E100-A1：**16 视频 / 302 事件**；§5.1 共同支持 **7 / 23短 / 37长**（PASS）。\n- 操纵暴露：短事件平均正点权重 T/N ≈ **11.70**（ACTIVE）；X 短权重 < N（长偏置对照成立）。\n- C0 时间命中：400→46、334→29（复现）。\n- 原生重建抽检 train 8 批 max abs **0**（全文 1745 批未在本轮重跑；未当作技术失败，因训练/评价已完整）。\n\n## 训练\n\n- N/T/X × seed100/101/102 各 500 步，**9/9**，优化器更新 **4500**。\n- AutoDL `:16241` / env `rebinding`；约 500s 墙钟。\n\n## 科学结果（334 残余时间命中）\n\n| seed | T | N | X | C0 | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|---:|\n| 100 | 31 | 35 | 42 | 29 | **−4** | −11 |\n| 101 | 31 | 35 | 41 | 29 | **−4** | −10 |\n| 102 | 30 | 37 | 42 | 29 | **−7** | −12 |\n\n- eta(T,N) ≈ **−0.0169**；eta(T,X) ≈ **−0.0372**；eta(T,C0) ≈ **+0.0056**（均远低于 0.20；T−N 每 seed 均不 >0）。\n- 主组 400：T 命中 45/42/42，低于同 seed N 的 50/52/52。\n\n**按合同 §6：REJECT / EFFECT_TOO_SMALL_OR_UNSTABLE。** 不采纳 H101/M101。不重开 H100；不自动改读出复活 090。\n\n范围：否决的是「仅把 focal 正点质量单位化」这一配方在本预算/成员下的原因主张；不能写成「一切时长重加权永远无效」或「短关系根因已找到」。\n",
+    "source": "sources/analysis/cause_arch_101_e101/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "571a7381c013ad8543a4c5e309f99fe7e0dd434e95f8f0da5f5167041061f6c4"
+  },
+  {
+    "experiment_dir": "cause_arch_102_e102",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（eta≪0.20；且 T 未稳定优于错位对照 X）\n\n实验：E102-EXTERIOR-NEG-FOCAL。Grace/supervisor 持续接管。\n\n## 合同与准入\n\n- 合同 SHA256 `d79fcc8ce91cc3c5cdb40ba04958e8c33ff1df49e8cd0742dac7b640aa534fd1`（β=V/max(d,1)）。\n- 机制-dev 继承 E100-A1：16/302；共同支持 7/23/37 PASS。\n- 操纵暴露：短事件 mean(w_neg) T/N ≈ **11.70**（ACTIVE）；X 使用同 β、错位窗口。\n- C0：400→46、334→29。\n\n## 训练\n\nN/T/X × seed100/101/102 × 500，**9/9**，4500 更新；AutoDL `:16241` / `rebinding`。\n\n## 334 残余时间命中\n\n| seed | T | N | X | C0 | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|---:|\n| 100 | 41 | 35 | 45 | 29 | **+6** | −4 |\n| 101 | 37 | 36 | 38 | 29 | **+1** | −1 |\n| 102 | 44 | 37 | 37 | 29 | **+7** | **+7** |\n\n- eta(T,N)≈**0.0158**；eta(T,X)≈**0.0023**；eta(T,C0)≈**0.0395**（均 ≪ 0.20）。\n- 每 seed T−N 均 >0，但未达 eta 门槛；T−X 未全 >0（X 在 seed100/101 更高）。\n- 主组 400：T 58/53/61 vs N 50/53/52（有正差，仍不足以过合同交集）。\n\n**REJECT / EFFECT_TOO_SMALL_OR_UNSTABLE。** 不采纳 H102/M102。不重开 H100/H101。\n\n范围：否决「仅区外负点升权」作为本预算下可验证主因；保留观察——相对 N 有小幅正向点估计，但错位 X 可竞争，故不能写成特异区外机制已证实。根因仍 OPEN。\n",
+    "source": "sources/analysis/cause_arch_102_e102/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "7944c0e98667355ad8f4dd9da9a0d8e2c8bc56990a7a1f8a45fc8f39672930e2"
+  },
+  {
+    "experiment_dir": "cause_arch_103_e103",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（T 全面不优于 N；eta(T,N)<0）\n\n实验：E103-UNIT-MASS-W1。Grace/supervisor 持续接管。合同 SHA256 `7d30315bef7fa6aaea956701804a53898ec898c939dedc31f030ef984a5359cc`（准入条款已相对初稿修正：C0 不要求 W1_true<W1_uniform）。\n\n## 准入与训练\n\n- 操纵 ACTIVE：L_T 与 L_N / L_X 可区分；W1_true 与 W1_uniform 可区分。\n- 支持继承 E100-A1：7/23/37；C0 46/400、29/334。\n- 训练 **9/9**，4500 更新；AutoDL `:16241`。\n\n## 334 残余时间命中\n\n| seed | T | N | X | C0 | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|---:|\n| 100 | 31 | 35 | 0 | 29 | **−4** | +31 |\n| 101 | 22 | 35 | 0 | 29 | **−13** | +22 |\n| 102 | 34 | 37 | 0 | 29 | **−3** | +34 |\n\n- eta(T,N)≈**−0.0226**；eta(T,X)≈0.098（X 崩溃为 0 命中，不能据此宣称 T 成功）；eta(T,C0)=0。\n- 主组 400：T 47/33/48，均不优于同 seed N（50/52/52）。\n\n**REJECT。** 不采纳 H103/M103。不重开 H100–H102。\n\n范围：否决的是「在保留原生 hull 的前提下，用单位质量 W1 **替换**二值 focal+Dice 主监督」这一配方；不能写成一切分布/OT 监督永远无效，也不能把 X 归零误读成 T 已验证。根因仍 OPEN。E091 二值+几何辅助与本轮替换监督均为负，区间形成致因仍未识别。\n",
+    "source": "sources/analysis/cause_arch_103_e103/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "2834f57e8b8addd79bb229065bc52bffbd9ec8581156124371af607ead8d4832"
+  },
+  {
+    "experiment_dir": "cause_arch_104_e104",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（eta≪0.20；T−N 未全 seed >0）\n\n实验：E104-DEPTH-MASK-AGG。Grace/supervisor 持续接管。合同 SHA256 `d7d0506c142a44d4cc4911cf9bcefbcd202fe819f45c4708a9e7bcc9f9e76d8c`。\n\n## 准入与训练\n\n- 操纵 ACTIVE：fuse↔last L1≈0.052；L_T 与 L_N 可区分（T 无 aux，损失尺度更小属设计边界）。\n- 支持 E100-A1：7/23/37；C0 46/400、29/334。\n- 训练 **9/9**，4500 更新；AutoDL `:16241`。\n\n## 334 残余时间命中\n\n| seed | T | N | X | C0 | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|---:|\n| 100 | 41 | 35 | 40 | 29 | **+6** | +1 |\n| 101 | 37 | 35 | 30 | 29 | **+2** | +7 |\n| 102 | 33 | 37 | 29 | 29 | **−4** | +4 |\n\n- eta(T,N)≈**0.0045**；eta(T,X)≈0.0135；eta(T,C0)≈0.027（均 ≪ 0.20）。\n- T 稳定优于浅层对照 X，但相对原生 N 跨 seed 不稳且效应远低于门槛。\n\n**REJECT。** 不采纳 H104/M104。不重开 H100–H103。\n\n范围：否决「等权深度聚合 mask 替代末层独用」作为本预算下可验证主因；不能写成一切多层聚合无效。根因仍 OPEN。\n",
+    "source": "sources/analysis/cause_arch_104_e104/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "2148ffa5eea13322496fdbda39c7a492eb59cde49d964d9d04b712478057a416"
+  },
+  {
+    "experiment_dir": "cause_arch_105_e105",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（eta≪0.20；T−N 未全>0；且 T 与反转对照 X 命中完全相同）\n\n实验：E105-SOFT-MASS-DECODE。先完成 residual synthesis + literature map，再开唯一假设。合同 SHA256 `14c83eb5e1248158abcd41e62bb33ecb08e4136836cd2a707c999941478f630b`。\n\n## 设计边界\n\n- 训练：仅 3 条原生轨迹（seed 100/101/102 × 500），**共享权重**；N/T/X 为解码臂。\n- 准入：C0 hull 334=29 / soft=27 / revsoft=27；hull≠soft → 操纵可区分。\n\n## 334 结果\n\n| seed | T soft | N hull | X revsoft | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 33 | 35 | 33 | −2 | 0 |\n| 101 | 41 | 36 | 41 | +5 | 0 |\n| 102 | 41 | 37 | 41 | +4 | 0 |\n\n- eta(T,N)≈**0.0079**；eta(T,X)=**0**；eta(T,C0-hull)≈0.032。\n- C0 上 soft 略差于 hull（27 vs 29；主组 40 vs 46）。\n\n**REJECT。** 不采纳 H105/M105。不重开 H100–H104。\n\n范围：否决「在原生训练下，仅用 [0.1,0.9] 软质量分位替换 hull」作为本预算主因；T≡X 命中进一步削弱特异性。根因仍 OPEN。\n",
+    "source": "sources/analysis/cause_arch_105_e105/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "9427b655520f96fe758943aa93caa44c1c3c4a3787d7e93b1d620fb0ebd87335"
+  },
+  {
+    "experiment_dir": "cause_arch_106_e106",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（eta≪0.20；T−N 未全 seed >0）\n\n实验：E106-TEMPORAL-ADAPTER。R2 synthesis 后唯一假设。合同 SHA256 `1a2eb9105696ef4ce03264cf2ceb401df52e1b53e521795970f43587dfbf073e`。\n\n## 准入与训练\n\n- Adapter 近恒等：init T↔N mask L1=0；T↔X L1≈1.25（反转有效）。\n- 支持 E100-A1；C0 46/400、29/334。\n- 训练 **9/9**，4500 更新。\n\n## 334\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 38 | 35 | 19 | **+3** | +19 |\n| 101 | 31 | 36 | 26 | **−5** | +5 |\n| 102 | 40 | 35 | 25 | **+5** | +15 |\n\n- eta(T,N)≈**0.0034**；eta(T,X)≈0.044；eta(T,C0)≈0.025。\n- T 稳定优于时间反转 X（结构对照有效），但相对原生 N 跨 seed 不稳且远低于门槛。\n\n**REJECT。** 不采纳 H106。不重开 H100–H105。根因仍 OPEN。\n",
+    "source": "sources/analysis/cause_arch_106_e106/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "222d8a834d2b8cdd159de583bee31e2422effdd0eb5a8398d0bc3e549e2a5ed3"
+  },
+  {
+    "experiment_dir": "cause_arch_107_e107",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（eta(T,N)<0 且全 seed T−N≤0；远低于 0.20）\n\n实验：E107-MASKFEAT-ADAPTER。R3 synthesis 后唯一假设。合同 SHA256 `888a991d7da358dbf2127740ce6925597ccdb958cdd84b7756b9b824e77e525d`。\n\n## 准入与训练\n\n- Adapter 近恒等：init T↔N mask L1=0；T↔X L1≈1.48（`f` 时间反转有效）。\n- 支持 E100-A1；C0 residual334=29、main400=46。\n- 训练 **9/9**，4500 更新。\n\n## 334\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 28 | 35 | 0 | **−7** | +28 |\n| 101 | 33 | 36 | 0 | **−3** | +33 |\n| 102 | 28 | 35 | 0 | **−7** | +28 |\n\n- eta(T,N)≈**−0.019**；eta(T,X)≈0.100；eta(T,C0)≈0.002。\n- 反转 `f` 的 X 臂崩到 ~0 命中，说明对照暴露有效；但适配 `f` 相对原生 N **全面更差**。\n\n**REJECT。** 不采纳 H107。不重开 H100–H106。根因仍 OPEN。\n",
+    "source": "sources/analysis/cause_arch_107_e107/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "b7a7a6799ac56393a4fb9d756822d43384f635ec39de2abf9d6f1098700b9589"
+  },
+  {
+    "experiment_dir": "cause_arch_108_e108",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（eta(T,N)=0；T−N 未全 seed >0；T−X 未全 >0）\n\n实验：E108-DN-SHORT。R4 synthesis 后唯一假设。合同 SHA256 `672a485140c991d372affb93f94a12501ed7c9a78bcf64110b0320110ce72141`。\n\n## 准入与训练\n\n- Native rebuild maxabs=0；DN 辅助损失 T/X 均 >0；init DN mask L1(T↔X)≈0.084。\n- 支持 E100-A1；C0 residual334=29、main400=46。\n- 训练 **9/9**，4500 更新；推理均为原生 9 content query。\n\n## 334\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 37 | 35 | 42 | **+2** | −5 |\n| 101 | 36 | 36 | 33 | **0** | +3 |\n| 102 | 35 | 37 | 32 | **−2** | +3 |\n\n- eta(T,N)=**0**；eta(T,X)≈0.001；eta(T,C0)≈0.024。\n- 并行 DN 监督未稳定抬高 content-query 短区间；打乱跨度对照 X 亦不劣于 T。\n\n**REJECT。** 不采纳 H108。不重开 H100–H107。根因仍 OPEN。\n",
+    "source": "sources/analysis/cause_arch_108_e108/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "51205a3ee5af973a01e003a5d85654bc7be53aebc4a594bb0c05b9da5a39b87d"
+  },
+  {
+    "experiment_dir": "cause_arch_109_e109",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（eta(T,N)≈0.012≪0.20；T−X 未全 seed >0）\n\n实验：E109-COEXIST-FILM。R5 后唯一假设。合同 SHA256 `407ba76f757f16c98f4a262c562ac9d4068a98cd45d83e537e5377637b40fb39`。\n\n## 准入与训练\n\n- Native rebuild 0；zero-init FiLM 近恒等；9/9，4500 更新。\n\n## 334\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 38 | 35 | 39 | **+3** | −1 |\n| 101 | 37 | 36 | 38 | **+1** | −1 |\n| 102 | 42 | 35 | 36 | **+7** | +6 |\n\n- eta(T,N)≈**0.012**；eta(T,X)≈0.0045。\n- T 全 seed ≥N，但幅度远低于门槛，且相对打乱长度 X 不稳。\n\n**REJECT。** 不采纳 H109。不重开 H100–H108。根因仍 OPEN。\n",
+    "source": "sources/analysis/cause_arch_109_e109/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "cb1ca85efdaa601f6823bc2cf774fb86fe54372b462d9ebca066311782cf59c1"
+  },
+  {
+    "experiment_dir": "cause_arch_110_e110",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（eta≈0.018≪0.20；T−X 未全>0）\n\n实验：E110-DUR-MATCH。合同 SHA256 `a46af6a0a8be825ef1b0a0ec69cac5f6176d5be936d7cdab806499dc870d36c9`。\n\n## 334\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 38 | 35 | 38 | **+3** | 0 |\n| 101 | 41 | 35 | 44 | **+6** | −3 |\n| 102 | 44 | 37 | 36 | **+7** | +8 |\n\neta(T,N)≈**0.018**。匹配偏置有方向但不足门槛。\n\n**REJECT。** 不重开 H100–H109。\n",
+    "source": "sources/analysis/cause_arch_110_e110/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "5e2c2930b32f3b2db13bc8dfa882ff54b1ac8b89d522be4428e88b817171a6c7"
+  },
+  {
+    "experiment_dir": "cause_arch_111_e111",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（eta(T,N)<0；T−N 未全>0）\n\n实验：E111-SHORT-QUERY-BANK。合同 SHA256 `8d9736b4252b45a3d494e2b2cfafd97c877e3d5e35d5741599ba756698636f88`。\n\n## 334（Q=12 全臂）\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 41 | 39 | 42 | **+2** | −1 |\n| 101 | 40 | 40 | 40 | **0** | 0 |\n| 102 | 40 | 44 | 39 | **−4** | +1 |\n\nC0@Q12=30（经典 Q9=29）。短先验未优于无先验扩容。\n\n**REJECT。** 不重开 H100–H110。\n",
+    "source": "sources/analysis/cause_arch_111_e111/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "55b6260f146f38f804f1b1df91374d69b664fb353579f882350f3fbad767b031"
+  },
+  {
+    "experiment_dir": "cause_arch_112_e112",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（eta≈0.023≪0.20）\n\n**但：UNDERPOWERED_POSITIVE / ELIGIBLE_LARGER_SCALE** — 全 seed T−N>0 且 T−X>0（结构对照成立），非方向性证伪。\n\n实验：E112-SHORT-OVERSAMPLE。合同 SHA256 `f83edc532f3dbbdd43f82230aafd0be8c2fef571ba2bd17270547c84a63bc618`。\n\n## 334\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 42 | 38 | 37 | **+4** | +5 |\n| 101 | 43 | 40 | 34 | **+3** | +9 |\n| 102 | 48 | 35 | 33 | **+13** | +15 |\n\neta(T,N)≈**0.023**；eta(T,X)≈0.033。采样分离准入通过。\n\n按 2026-10-21 规则：**不永久关闭**；下一轮做更大尺度重测。\n",
+    "source": "sources/analysis/cause_arch_112_e112/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "276ec1d319f132237c51af24657c761537526e27860f4358e064569fd26aff94"
+  },
+  {
+    "experiment_dir": "cause_arch_112_e112_scale",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（且方向在更大尺度下崩溃）\n\n实验：E112-SCALE（H112 5×2000）。合同 SHA256 `9915ee4738a6aafcc7e5fd70ea94a9dadbed479560b6170a7e8b08a02acf958c`。\n\n## 334（5 seeds × 2000 steps）\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 37 | 34 | 43 | +3 | −6 |\n| 101 | 31 | 35 | 43 | −4 | −12 |\n| 102 | 32 | 35 | 37 | −3 | −5 |\n| 103 | 29 | 30 | 44 | −1 | −15 |\n| 104 | 40 | 33 | 36 | +7 | +4 |\n\neta(T,N)≈**0.001**；eta(T,X)≈**−0.023**。小尺度 E112 的全正 T−N/T−X **未在更大预算下复现**；过采样短+共存作为唯一杠杆 **证伪**（可永久关闭该配方）。\n\n**REJECT。** 不重开 E112 小尺度阳性作为已验证因果。\n",
+    "source": "sources/analysis/cause_arch_112_e112_scale/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "612b9d25a3cec89ae42ca658a77306aacbed9ae732ace15b0673f0c180ef4268"
+  },
+  {
+    "experiment_dir": "cause_arch_112_scale",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（且方向在更大尺度下崩溃）\n\n实验：E112-SCALE（H112 5×2000）。合同 SHA256 `9915ee4738a6aafcc7e5fd70ea94a9dadbed479560b6170a7e8b08a02acf958c`。\n\n## 334（5 seeds × 2000 steps）\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 37 | 34 | 43 | +3 | −6 |\n| 101 | 31 | 35 | 43 | −4 | −12 |\n| 102 | 32 | 35 | 37 | −3 | −5 |\n| 103 | 29 | 30 | 44 | −1 | −15 |\n| 104 | 40 | 33 | 36 | +7 | +4 |\n\neta(T,N)≈**0.001**；eta(T,X)≈**−0.023**。小尺度 E112 的全正 T−N/T−X **未在更大预算下复现**；过采样短+共存作为唯一杠杆 **证伪**（可永久关闭该配方）。\n\n**REJECT。** 不重开 E112 小尺度阳性作为已验证因果。\n",
+    "source": "sources/analysis/cause_arch_112_scale/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "612b9d25a3cec89ae42ca658a77306aacbed9ae732ace15b0673f0c180ef4268"
+  },
+  {
+    "experiment_dir": "cause_arch_113_e113",
+    "label_reported": "REJECT",
+    "subreason": "DIRECTION_WRONG_OR_HARMFUL",
+    "first_1500_chars": "# REJECT\n\n**子因：DIRECTION_WRONG_OR_HARMFUL**（eta(T,N)≈−0.068；全 seed T−N<0）\n\n实验：E113-MOMENT-DETR-SPAN。合同 SHA256 `fac157c0d082987eb29b32a4ccdbd209bb67e31f4d5c0bf1952d59cbbbad89e4`。\n\n## 334\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 16 | 40 | 2 | **−24** | +14 |\n| 101 | 22 | 40 | 2 | **−18** | +20 |\n| 102 | 24 | 41 | 2 | **−17** | +22 |\n\neta(T,N)≈**−0.068**；eta(T,X)≈0.057。X≈floor → aux 相对 shuffle 有结构，但对 N/hull 有害。\n\nAdmission：ADMISSION_PASS（span_path_mask_L1≈0.080 记 exposure；训练全臂 `forward_with_span`）。\n\n**关闭族：Moment-DETR-style cxw span 替换 hull 解码 + span L1 aux（H113）。** 非 UNDERPOWERED；不 scale。下一轮勿再以 span 解码替代 mask→hull。\n",
+    "source": "sources/analysis/cause_arch_113_e113/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "6bfc896fd58cf0a981b45ef9ecc14d6848f8a9ebf8369bc9767eca18b08368ff"
+  },
+  {
+    "experiment_dir": "cause_arch_114_e114",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（eta≈0.034≪0.20）\n\n**但：UNDERPOWERED_POSITIVE / ELIGIBLE_LARGER_SCALE** — 全 seed T−N>0；T−X 弱（+2/0/0）。\n\n实验：E114-TGIOU-MATCH。合同 SHA256 `383b5c56d5699ea62658cb0728f70f3923b8d0f9577a19f13895742fbfbb735a`。\n\n## 334\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 46 | 35 | 44 | **11** | 2 |\n| 101 | 48 | 35 | 48 | **13** | 0 |\n| 102 | 41 | 35 | 41 | **6** | 0 |\n\neta(T,N)≈**0.034**；eta(T,X)≈0.002。\n\nAdmission：match_disagree T↔N≈0.018。\n\n**不永久关闭**；可更大尺度重测。下一轮优先 lit jump（ActionFormer 多尺度），因 T−X 未稳。\n",
+    "source": "sources/analysis/cause_arch_114_e114/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "2542064eeb4045c7f5de90397dd63cfa594067bf4ad0b8ff7aee587a63d4383a"
+  },
+  {
+    "experiment_dir": "cause_arch_114_scale",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（eta≈0.011≪0.20）\n\n**SCALE_FALSIFIED** — 小尺度 E114 全 seed T−N>0（eta≈0.034）在 5×2000 下**未复现**；出现负/零 TN，T−X 多为负。\n\n实验：E114-SCALE-TGIOU-MATCH。合同 SHA256 `a4f62c08b696b7c1cd7cce8bafa3ef98e235224837869e65f1550234bc154229`。\n\n## 334（5 seeds × 2000 steps）\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 38 | 34 | 42 | **+4** | −4 |\n| 101 | 44 | 34 | 37 | **+10** | +7 |\n| 102 | 31 | 39 | 33 | **−8** | −2 |\n| 103 | 35 | 35 | 47 | **0** | −12 |\n| 104 | 40 | 29 | 39 | **+11** | +1 |\n\neta(T,N)≈**0.011**；eta(T,X)≈**−0.007**（macro≈0.014 / 0.004）。\n\nAdmission：match_disagree T↔N≈0.016；rebuild=0。\n\n**关闭族：temporal-GIoU-matching-only（H114 / H114-SCALE）。** 不重开小尺度 underpowered+ 作为已验证因果。匹配几何单独加 GIoU 不是主因果杠杆。\n",
+    "source": "sources/analysis/cause_arch_114_scale/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "baf7603383f22c8216d792dc9774457221212904f2166e3a75d1c88a5c727701"
+  },
+  {
+    "experiment_dir": "cause_arch_115_e115",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（eta≈-0.002；非全 TN>0）\n\n实验：E115-ACTIONFORMER-TFPN。SHA `4082748760cc4cbc492d9b8b407d963e56ec92ac46c8e04bf455c80fbd9b6cd7`。\n\n## 334\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 37 | 35 | 1 | **2** | 36 |\n| 101 | 39 | 36 | 0 | **3** | 39 |\n| 102 | 30 | 37 | 0 | **-7** | 30 |\n\n**关闭族：TFPN-on-f（H115）。**\n",
+    "source": "sources/analysis/cause_arch_115_e115/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "615038a7edb1cb6f40ecdb7592af20cc3634c9c7c7c5624c1d8b76a69693b4d4"
+  },
+  {
+    "experiment_dir": "cause_arch_116_e116",
+    "label_reported": "REJECT",
+    "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+    "first_1500_chars": "# REJECT\n\n**子因：EFFECT_TOO_SMALL_OR_UNSTABLE**（eta≈0.015）\n\n**UNDERPOWERED_POSITIVE**（全 TN>0）但弱于 H114；T−X 不稳。\n\n实验：E116-SPAN-AUX-HULL。SHA `6e42e1083b406c4bda15d13192f73f40241c419da74626438859d14467cb1a4f`。\n\n## 334\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 36 | 35 | 39 | **1** | -3 |\n| 101 | 44 | 36 | 39 | **8** | 5 |\n| 102 | 41 | 37 | 38 | **4** | 3 |\n\n**不永久关闭**；scale 优先选更强的 H114（eta≈0.034）。H116 证伪「仅 aux 即够 η=0.20」。\n",
+    "source": "sources/analysis/cause_arch_116_e116/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "49faf977ea2538147fd7e89913615627036c8f3dc6e315a5ff641b9f6036ffca"
+  },
+  {
+    "experiment_dir": "cause_arch_117_e117",
+    "label_reported": "REJECT",
+    "subreason": "DIRECTION_WRONG_OR_HARMFUL",
+    "first_1500_chars": "# REJECT\n\n**子因：DIRECTION_WRONG_OR_HARMFUL**（eta≈−0.14；T residual334 ≈ 0/0/1）\n\n实验：E117-CENTERNESS-MASK。合同 SHA256 `26130c76f308753d55a639e3ce930d57c53084475ffcf33ec2e3494cb06645c1`。\n\n## 334\n\n| seed | T | N | X | T−N | T−X |\n|---:|---:|---:|---:|---:|---:|\n| 100 | 0 | 39 | 12 | **−39** | −12 |\n| 101 | 0 | 40 | 20 | **−40** | −20 |\n| 102 | 1 | 42 | 23 | **−41** | −22 |\n\neta(T,N)≈**−0.138**；eta(T,X)≈**−0.058**。\n\n**关闭族：centerness / Gaussian `loss_mask` 重加权 focal+dice（H117）。** 中心聚焦监督在本协议下有害，不是短关系主因杠杆。\n",
+    "source": "sources/analysis/cause_arch_117_e117/VERDICT.md",
+    "audit_level": "read_current_verdict_not_full_independent_reproduction",
+    "sha256": "c2b809c8935b19d8ff6feb2c4fa99194cc86f6a01d5b69c506585d05d29a3f57"
+  }
+]

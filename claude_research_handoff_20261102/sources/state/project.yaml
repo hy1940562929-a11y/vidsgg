@@ -1,0 +1,83 @@
+project:
+  name: cvpr-agent-lab
+  target_venue: CVPR
+  status: ACTIVE
+research:
+  stage: MINIMAL_VERIFICATION
+  active_research_question: |
+    长期共存的实体之间，短暂发生的关系仍然容易漏掉，持续的实体共存中存在的长关系特征压过了短暂的关系时间证据，使得模型漏掉短关系，或把它延续的更长。
+    （用户于 2026-10-17 在 Codex Commander 会话确认，要求按此设计方案与论文故事。）
+  active_hypothesis_ids:
+  - HYP-VIDOR-047-NATIVE-THRESHOLD-FAMILY-LIMIT
+  - HYP-VIDOR-045-INPUT-BOUNDARY-DEPENDENCE
+  - HYP-VIDOR-042-PADDING-LOSS-WEIGHT
+  - HYP-VIDOR-041-FIXED-TARGET-CONTEXT-SUPPORT
+  - HYP-VIDOR-040-INPUT-SUPPORT-SHIFT
+  - HYP-VIDOR-023-DISTAL-EDGE-OPERATION
+  - HYP-VIDOR-021-SPARSE-HULL-BLOCKERS
+  - HYP-VIDOR-020-QUERYBANK-SELECTION-GAP
+  - HYP-VIDOR-019-FROZEN-TEMPORAL-ALIGNMENT
+  - HYP-VIDOR-015-THRESHOLD-REACHABILITY
+  - HYP-VIDOR-012-BOUNDED-UTILITY
+  active_method_id: null
+  candidate_research_question: Why do brief annotated events within persistent entity pairs lack matching temporal outputs?077
+    supports duration and copresence associations and bounded mask failures, not historical/context suppression causality.
+    Need reliable continuous semantic boundaries before layer/context interventions;075negative remains.
+workflow:
+  current_focus: CAUSE_ARCH091_SURVEY_DESIGN_COMPLETE_WAIT_NEXT_USER
+  current_task_status: 091_COMPLETE_DESIGN_REVIEWED_NOT_RUN
+  last_result: "091 completed26-work literature alignment, source-audited temporal-loss geometry hypothesis and one conditional M091-EVENT-MEASURE architecture design. NOT_VERIFIED_CAUSE; residual interval deficit remains operational evidence, not root cause. One E091-GEOMETRY-CONTRACT experiment designed, NOT_RUN_MISSING_CACHE. Reviewer PASS_WITH_CONCERNS after3 revisions: distinguish intervention effect from root cause, add zero-updateC0, freeze mechanism metric and mutually exclusive exits. User complete-cause hard standard remains unmet. No new experimental evidence, method adoption, direction change, training/GPU/SSH or next task queued. See literature/short_interval_cause_arch_091_survey.md and analysis/cause_arch_091/."
+  next_training_prerequisite: Do not extend075 loss/head-only version or admit a selector from training-only surrogate gains.
+    Any new intervention needs a distinct falsifiable hypothesis, verified training/target support, and an explicit comparator
+    to negative043/049/058/075.073 still provides no admission for memory retention/expiry/restart training.
+  blocked_by:
+  - 087/088/089 do not identify a unique causal mechanism;089 supports residual interval deficit under fixed readout but actually changes no eligible query.
+  - 091 is design only; trainable native32train/8dev frozen features and aligned single-event target contracts are not locally verified. NOT_RUN_MISSING_CACHE. Full cause and architecture benefits remain unverified.
+  waiting_for_user: true
+  waiting_for_remote_experiment: false
+  remote_job_active: false
+quality_gates:
+  problem_defined: true
+  literature_checked: false
+  phenomenon_verified: false
+  mechanism_supported: false
+  method_defined: false
+  method_validated: false
+  ablations_complete: false
+  claims_supported: false
+  reviewer_passed: false
+  submission_ready: false
+state_policy:
+  scope: schema_and_initial_state_only
+  automation_enabled: false
+  formal_state_owner: commander
+  final_decision_authority: user
+  ownership:
+    commander: 负责正式状态推进和重大决策整合；重大事项须经用户确认。
+    direction: 提出 Hypothesis Candidate，不直接将假设标记为 SUPPORTED。
+    innovation: 提出 Method Candidate，不编造或写入虚假实验 Evidence。
+    paper: 读取 claims 并提出 missing evidence，不自行提升 claim 状态。
+    reviewer: 独立审查状态和证据，提出修正意见，不自行篡改事实。
+    experiment: 仅通过用户人工带回的 Result Package 返回结果，不直接修改本地 state。
+  append_only_files:
+  - state/hypotheses.jsonl
+  - state/evidence.jsonl
+  - state/decisions.jsonl
+  snapshot_files:
+  - state/project.yaml
+  - state/claims.yaml
+  history_rules:
+  - JSONL 每行必须是独立 JSON 对象，不写注释、示例或占位记录。
+  - 不删除或覆盖历史记录；更正和状态改变通过追加新记录表达。
+  - 新记录关联原对象及被修订记录，保留变更人、时间、原因和依据。
+  - 同一假设追加完整状态版本，保持 hypothesis_id 和原始 created_at，更新 updated_at 并说明变更。
+  - 当前快照由 Commander 根据可追溯记录整合；不能用快照覆盖来掩盖历史。
+  evidence_rules:
+  - 计划中的实验不是 Evidence；真实实验完成且结果实际导入之前，不创建实验 Evidence。
+  - 文献报告与本项目实验结果明确区分，来源和材料必须可核查。
+  - 结果导入不自动表示假设成立或通过审查；正式状态推进必须有相应依据。
+  setup_rule: 本次初始化不授权 Agent 自动写入状态、创建任务、连接服务器或运行实验。
+last_update:
+  by: commander
+  at: "2026-10-20T09:30:42.292053+00:00"
+  reason: "089 single authorized local CPU task completed and independently reviewed. Operational residual deficit supported, mechanism still open; no further tasks queued. Prior negative/inconclusive evidence retained."

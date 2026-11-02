@@ -1,0 +1,17 @@
+{
+  "experiment": "E105-SOFT-MASS-DECODE",
+  "hypothesis": "H105",
+  "verdict": "REJECT",
+  "subcause": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "contract_sha256": "14c83eb5e1248158abcd41e62bb33ecb08e4136836cd2a707c999941478f630b",
+  "trains": 3,
+  "decode_evals": 9,
+  "residual334_T_minus_N": [
+    -2,
+    5,
+    4
+  ],
+  "eta_T_N": 0.007909604519774013,
+  "note": "T hits identical to reverse-soft X on all seeds",
+  "autodl": "connect.bjb1.seetacloud.com:16241"
+}

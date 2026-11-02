@@ -1,0 +1,46 @@
+\section{Experiments}
+\paragraph{Data and protocols.}
+VidOR is the primary benchmark. Official train, development, and evaluation
+video IDs must be sealed before new experiments. The previously examined 27- and
+250-video diagnostic subsets are not independent held-out tests. ImageNet-VidVRD
+can provide an additional benchmark, with its different annotation granularity
+reported explicitly. A PVSG comparison requires task adaptation and a VidOR
+source-video overlap audit.
+
+\paragraph{Comparators.}
+Compare the unchanged checkpoint, same-budget native continued training,
+an ordinary boundary control, a clearly documented temporal-focusing adaptation,
+and the proposed method. Use the same inputs, budget, evaluation implementation,
+and matched seeds. A task-adapted control is not automatically an author-method
+reproduction.
+
+\begin{table}[t]
+\centering\small
+\caption{Planned official detection evaluation. New evaluations are not run.
+Historical diagnostic numbers are deliberately not substituted here.}
+\begin{tabular}{lccc}
+\toprule Method & mAP & R@50 & R@100 \\
+\midrule Frozen base & \NR & \NR & \NR \\
+Native FT & \NR & \NR & \NR \\
+Boundary & \NR & \NR & \NR \\
+TFN-style & \NR & \NR & \NR \\
+Proposed & \NR & \NR & \NR \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Event slices and gains/losses.}
+Report $<1$, $1$--$3$, $3$--$10$, and $\geq10$ second groups, continuous
+co-presence, interval occupancy, and both predicate-aware and time-only results.
+Every recovery analysis includes newly detected instances, lost baseline
+instances, fixed-original-C recovery, output counts, and long-event protection.
+Ratios include their actual numerator and denominator; AP is not a TP/GT ratio.
+
+\paragraph{Mechanism and ablations.}
+\Missing{Pre-register the final core mechanism comparator and necessary ablations.
+Do not repeat failed recipes under new names or choose validation thresholds
+after seeing their results.}
+
+\paragraph{Reproducibility.}
+\Missing{Add actual environments, weights, splits, trainable parameters, seeds,
+runtime, uncertainty, prediction seals, and code commit after execution.}

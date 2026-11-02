@@ -1,0 +1,19 @@
+{
+  "status": "SOFTWARE_SMOKE_PASS",
+  "device": "cpu",
+  "synthetic": true,
+  "research_result": false,
+  "torch_version": "2.2.2",
+  "finite_loss_and_gradients": true,
+  "relation_shape": [
+    2,
+    3,
+    32
+  ],
+  "high_resolution_shape": [
+    2,
+    32,
+    16
+  ],
+  "cdse_selection_exercised": true
+}

@@ -1,0 +1,33 @@
+{
+  "generated_at_utc": "2026-10-29T13:48:06.290228+00:00",
+  "research_result": false,
+  "native_source_root": "/Users/xk/Documents/ChatGPT/cvpr-agent-lab/handoff/incoming/VIDOR-NATIVE-FEATURE-CURRENT-030/full_v1/results_v1/source_snapshot",
+  "native_model_sources_sha256": {
+    "models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "models/backbones.py": "a2555a9eb2a6209a710875dc93a879d9cc6e6b40f7f79f19b848a76ce003dd0e",
+    "models/blocks.py": "a1614ecf1f248ade4813833aa8ea9dcc386e92ea7be5da0913d41ff219c15e2d",
+    "models/fpns.py": "8f360371ab42ee97a8035af0fd262cafaae72c9e252a37403575eeac556fa5a1",
+    "models/local_transformer.py": "c708c08f0c6a6fb2d00774ebbfbe1a5515e63fc64f11d879c2d48778b218159c",
+    "models/losses.py": "204bf7368d978ecbce03bf053fd116c1b7803cc53f0e703612c44c866873c5ae",
+    "models/maskvrd.py": "52d5ae191d8331679f69e4d478fa0acffee5ec34423e40dda25cc56a37144d27",
+    "models/predictor.py": "c8d29b5eae2d7910082e11812ce8bf587407b37a442795ff57049f9785cfffab",
+    "models/transformer.py": "d75f76967e5be724396708c3863c8d1968b2ff97001d195b184c7b2cdafcf401",
+    "models/weight_init.py": "96f808b50a97e689d4a5cf1bc1dc5472ea2a3a119df8e3afafaa36a42dd6a91c"
+  },
+  "deliverable_sha256": {
+    "README.md": "a922ccc1ff704b94aab4675de16822471dd95df443658ffef670c97578311284",
+    "VALIDATION.json": "3c8fd77e5d3039f82a1320cb3c5d6efbf328395b44778cdd2e2f64bfb92c84f7",
+    "config.example.json": "6fcbe130378d6638ba30aaf4568b9b5f6ce0783ee3353501499d9fd5d5d3251d",
+    "integration_example.py": "74ea429efa02327397a67c42a41aa8af0bb5cfabf7349e17c9f7797364d2d013",
+    "prepare_text_anchors.py": "aa97bd1c0494d3bd19d3c2452d6a9712472cdc89dac253406aaf04dfdefd9633",
+    "relation_enhancement.py": "c20d2bb00924d9ba9d315a58cb63359cb2c549be55b8fdeea5b0530347a0c92f",
+    "requirements.txt": "d685a1be3e2351bd68dc59cceb768699120681ff759658c2233becce6a419a5c",
+    "smoke_result.json": "2a189fdfb2526f2dea76587837f7eefd8946270b05448912cee8e257549c9b27",
+    "smoke_test.py": "c48241b368bb97d7614c9da383435b738832845db09078545c3f9ceba7302f33",
+    "test_enhancement.py": "205567fc4c62958d4913fdb9c813027c2fbdc2b1773fa1f7936cec7118ccc2d1",
+    "test_vrdone_adapter.py": "afc2b5e07cb60de100fbe919061670502ab1974aa4dde1d1a3e371a93393ce04",
+    "validation.log": "c764be0d5a92a2fbedaba30ba09ba6658ace817b712ba2c04eca63ad812d9a2d",
+    "vrdone_adapter.py": "858672331a3eda8b09a430b5cff7223cca2e51560e8cef5ba8a186152babfe13"
+  },
+  "note": "This file excludes its own hash. Native source files are not vendored in the deliverable."
+}

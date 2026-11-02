@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "experiment_id": "VIDOR-MECHANISMS-079",
+  "status": "PREPARED_NOT_EXECUTED",
+  "device": "cuda:0",
+  "paths": {
+    "repo_root": "/root/rebinding_project/VrdONE",
+    "data_root": "/root/autodl-tmp/VrdONE-data",
+    "checkpoint": "/root/rebinding_project/VrdONE/experiments/vrdone_vidor/ckpt_vidor.pth",
+    "gt_proposals": "/root/rebinding_project/VrdONE/datasets/vidor/features/gt_per_video_val_strict27",
+    "gt_features": "/root/rebinding_project/VrdONE/datasets/vidor/features/GT_boxfeatures_validation_strict27",
+    "annotations": "/root/rebinding_project/VrdONE/datasets/vidor/annotations/validation",
+    "cache_root": "/root/autodl-tmp/VrdONE-data/commander_mask_training_043/results_v1",
+    "train_export_root": "/root/autodl-tmp/VrdONE-data/commander_architecture_010/export_v1",
+    "vendor078": "vendor078"
+  },
+  "files": {
+    "source_contract043": "vendor078/source_contract043.json",
+    "cache_inventory": "vendor078/CACHE_INVENTORY.json",
+    "cohorts": "vendor078/cohorts.json",
+    "effective_config": "effective_config.json"
+  },
+  "source_contract": "vendor078/source_contract043.json",
+  "model_config": "effective_config.json",
+  "checkpoint_sha256": "4dcbc1091faf71330694fce138c3a4ff84e43ca3fb988b66fdacf26745bce627",
+  "path_remap": {},
+  "sampling": {
+    "max_videos": 27,
+    "max_tokens": 8192,
+    "max_pair_frames": 32768,
+    "wall_seconds": 2400,
+    "bootstrap_reps": 2000,
+    "save_raw": true,
+    "stride1": false,
+    "full_interp2": true,
+    "coarse_gates": [
+      0.5,
+      0.0
+    ],
+    "seed": 79
+  },
+  "layer_probe": {
+    "steps": 500,
+    "seed": 79,
+    "learning_rate": 0.001,
+    "wall_seconds": 1800,
+    "bootstrap_reps": 2000
+  },
+  "loss_probe": {
+    "steps": 500,
+    "seed": 79,
+    "learning_rate": 0.0003,
+    "lambda_iou": 1.0,
+    "wall_seconds": 1800
+  },
+  "scope": {
+    "allow_full_benchmark": false,
+    "allow_checkpoint_overwrite": false,
+    "semantic_off_labels_available": false,
+    "label_interpretation": "VidOR annotation recoverability; not verified semantic absence",
+    "training_split": "official-training-source32+8; checkpoint pretraining may have seen adapter_dev",
+    "sampling_split": "previously exposed strict27 diagnostic videos"
+  },
+  "advance_criteria": {
+    "sampling_min_net_short_pp": 1.0,
+    "sampling_video_ci_lower_gt": 0.0,
+    "fpn_same_sign_two_gates": true,
+    "loss_train_short_net_gt": 0,
+    "loss_dev_short_net_gt": 0,
+    "loss_dev_total_net_ge": 0,
+    "loss_dev_long_net_ge": 0,
+    "automatically_expand": false
+  }
+}

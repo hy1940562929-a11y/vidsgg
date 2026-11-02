@@ -1,0 +1,123 @@
+{
+  "experiment": "E100-DEPTH-EVENT-ASSIGNMENT",
+  "attempt": "MEMBERSHIP_EXPAND_RERUN",
+  "contract_amendment": "E100-A1",
+  "contract_original_sha256": "d9e3e010a08a7822f8f0d8a1e2f50c4ed9cccb6484def3340d118809126971bc",
+  "amendment_sha256": "a1779037faa81194a8c17ec4f43afc00e143e23318b2992fd342f1701dbec72d",
+  "verdict": "REJECT",
+  "subreason": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "membership_before": {
+    "videos": 8,
+    "events": 169,
+    "common": {
+      "videos": 3,
+      "short": 10,
+      "long": 16
+    }
+  },
+  "membership_after": {
+    "videos": 16,
+    "events": 302,
+    "added_videos": 8,
+    "added_events": 133,
+    "common": {
+      "videos": 7,
+      "short": 23,
+      "long": 37
+    },
+    "eligible": 115,
+    "support_gate": true
+  },
+  "admission": {
+    "status": "ADMISSION_PASS",
+    "checked_batches": 1745,
+    "max_native_error": 0.0
+  },
+  "training": {
+    "completed": 9,
+    "planned": 9,
+    "optimizer_steps": 4500,
+    "runs": [
+      "N_100",
+      "T_100",
+      "X_100",
+      "N_101",
+      "T_101",
+      "X_101",
+      "N_102",
+      "T_102",
+      "X_102"
+    ]
+  },
+  "checks": {
+    "active": true,
+    "headroom": true,
+    "true_path_better": true,
+    "eta": false,
+    "seeds": false,
+    "main400": false,
+    "mechanism": false,
+    "protection": false
+  },
+  "eta": {
+    "N": {
+      "point": 0.0045197740112994335,
+      "denominator": 295.0,
+      "net_gain": 1.3333333333333328,
+      "ci95": [
+        -0.009132768125626464,
+        0.01505195287263824
+      ],
+      "bootstrap_nonpositive_denominator": 0
+    },
+    "X": {
+      "point": 0.06772486772486773,
+      "denominator": 314.99999999999994,
+      "net_gain": 21.333333333333332,
+      "ci95": [
+        0.0359699725735055,
+        0.1105448892801349
+      ],
+      "bootstrap_nonpositive_denominator": 0
+    },
+    "C0": {
+      "point": 0.027593818984547457,
+      "denominator": 302.0,
+      "net_gain": 8.333333333333332,
+      "ci95": [
+        -0.0054673388664060185,
+        0.05592901086609139
+      ],
+      "bootstrap_nonpositive_denominator": 0
+    }
+  },
+  "per_seed_T_minus_N_residual334": {
+    "100": {
+      "N": 6,
+      "X": 21
+    },
+    "101": {
+      "N": 0,
+      "X": 18
+    },
+    "102": {
+      "N": -2,
+      "X": 25
+    }
+  },
+  "artifacts": {
+    "amendment": "attempt_04_membership_expand/CONTRACT_AMENDMENT.md",
+    "freeze": "attempt_04_membership_expand/MEMBERSHIP_FREEZE.md",
+    "summary": "attempt_04_membership_expand/final_statistics/summary.json",
+    "verdict_json": "attempt_04_membership_expand/final_statistics/verdict.json",
+    "imported": "attempt_04_membership_expand/imported_results/"
+  },
+  "codex_interrupted": {
+    "reason": "usage_limit_exceeded",
+    "retry_hint": "Oct 27th, 2026 2:48 AM",
+    "sealed_by": "supervisor_executor",
+    "sealed_at_utc": "2026-10-21T10:06:19.188669+00:00"
+  },
+  "next_task_queued": false,
+  "recorded_at_local": "2026-10-21 06:06:19 EDT"
+}

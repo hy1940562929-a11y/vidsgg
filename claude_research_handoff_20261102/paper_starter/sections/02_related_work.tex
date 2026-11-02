@@ -1,0 +1,21 @@
+\section{Related Work}
+\paragraph{Video relation modeling.}
+BIG formulates classification and temporal grounding through a bipartite graph,
+and VrdONE predicts relation instances through one-dimensional instance
+segmentation~\cite{big,vrdone}. SegPVSG addresses temporally sparse interactions
+through temporal focusing and relation-centric video augmentation~\cite{segpvsg}.
+Our comparison must therefore isolate a more specific contribution than sparse
+event localization alone.
+
+\paragraph{Temporal event localization.}
+VSGN directly targets short actions using temporal magnification and cross-scale
+graphs~\cite{vsgn}. ActionFormer and TriDet offer strong multi-scale temporal
+detection and boundary modeling designs~\cite{actionformer,tridet}.
+BAM-DETR uses boundary-oriented decoding, while DenoiseLoc learns interval
+refinement through denoising~\cite{bam,denoiseloc}. These methods motivate explicit
+controls for boundary prediction, refinement, and localization quality.
+
+\paragraph{Conditional span prediction.}
+VSLNet uses query-guided highlighting and span prediction~\cite{vslnet}.
+Consequently, a conditioned start/end head alone is a close-precedent baseline.
+\Missing{Compare the final core computation against the closest verified methods.}

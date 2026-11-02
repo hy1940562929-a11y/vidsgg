@@ -1,0 +1,22 @@
+{
+  "experiment": "E101-DURATION-EQUAL-FOCAL",
+  "hypothesis": "H101",
+  "verdict": "REJECT",
+  "subcause": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "contract_sha256": "66c276b98f6987839ea2b17edd61cf9a452b04935985ba42c4f287aee663dd60",
+  "train": "9/9",
+  "optimizer_steps": 4500,
+  "residual334_T_minus_N": [
+    -4,
+    -4,
+    -7
+  ],
+  "eta_T_N": -0.016930022573363433,
+  "autodl": "connect.bjb1.seetacloud.com:16241",
+  "takeover": "Grace/supervisor after Codex usage_limit_exceeded",
+  "artifacts": {
+    "cause_pack": "analysis/cause_arch_101/",
+    "run": "analysis/cause_arch_101_e101/",
+    "remote": "/root/autodl-tmp/VrdONE-data/commander_cause_arch_101/"
+  }
+}

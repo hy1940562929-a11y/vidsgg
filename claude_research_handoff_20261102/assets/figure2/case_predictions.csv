@@ -1,0 +1,7 @@
+﻿video_name,saved_rank_1based,pred_score,prediction_key,pred_begin_fid,pred_end_fid,subject_class,predicate,object_class,source_sid,source_oid,source_pair_idx,source_candidate_id,source_query,selected_input_eligible,subject_binding_status,object_binding_status,mapped_subject_tid,mapped_object_tid,target_tIoU
+1018_4199369046,5,0.9789488315582275,1018_4199369046:saved_rank:5,220,1529,adult,watch,adult,2,0,1,102,8,true,bound,bound,3,4,0.025974025974025976
+1018_4199369046,10,0.9586254358291626,1018_4199369046:saved_rank:10,112,253,adult,watch,adult,2,0,1,60,1,true,bound,bound,3,4,0.0
+1018_4199369046,17,0.9472843408584595,1018_4199369046:saved_rank:17,0,133,adult,watch,adult,2,0,1,54,0,true,bound,bound,3,4,0.0
+1018_4199369046,19,0.9380879402160645,1018_4199369046:saved_rank:19,1556,1713,adult,watch,adult,2,0,1,72,3,true,bound,bound,3,4,0.0
+1018_4199369046,143,0.7536957263946533,1018_4199369046:saved_rank:143,0,201,adult,watch,adult,2,0,1,91,6,true,bound,bound,3,4,0.0
+1018_4199369046,187,0.7174720168113708,1018_4199369046:saved_rank:187,236,1537,adult,watch,adult,2,0,1,68,2,true,bound,bound,3,4,0.026133743274404306

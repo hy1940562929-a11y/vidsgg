@@ -1,0 +1,34 @@
+{
+  "recorded_at": "2026-10-20T18:06:32.822964+00:00",
+  "version": "FIX_RERUN_v2",
+  "verdict": "REJECT",
+  "subreason": "INTERFERENCE_NOT_ESTABLISHED",
+  "gates": {
+    "short_OP": false,
+    "short_WP": false,
+    "short_specificity": true,
+    "short_class_dot_negative": true
+  },
+  "completed_gradient_directions": 88,
+  "planned_gradient_directions": 88,
+  "virtual_steps": 264,
+  "event_direction_rows": 14872,
+  "formal_training_runs_started": 0,
+  "planned_training_runs_if_admitted": 9,
+  "formal_training_status": "NOT_RUN_C0_ADMISSION_FAILED",
+  "next_task_queued": false,
+  "H099_verified": false,
+  "M099_adopted": false,
+  "old_failure_preserved": "results_v1/execution_snapshot/",
+  "archive_sha256": "da278f8ff66f11fddd5d462ee13310acacdb2bcf85355e649ca72e9fe6f47fdb",
+  "documents_sha256": {
+    "PROTOCOL.md": "d4641ac8d566426004222ca6dd29365fecfef2c8820d0b6a6112543ae0b2e44b",
+    "REPORT.md": "57d36bf6f6a328dc8aca0d4506666a8f7bd8e4e0fd633b717e007883b9f77e27",
+    "VERDICT.md": "942285c7b2a1487397be5838384564da9951ce15a2214a39672c37bbf9decb97",
+    "REVIEW.md": "4dd8a29e5942a948cfc1f05886716ee6fa5a3a715f79d1f410f43b4452f97937",
+    "results_v2/INDEPENDENT_REVIEW.md": "23c7f83e542584dba1ea076152ac1e30d6b565d8c9d79e71c50026cb3bb91ec8",
+    "results_v2/fix_freeze.json": "1c2f71f4dcddd7a605323138cc327cdf93213f9d02615965fc8da7ab2a2c61ae",
+    "results_v2/import_receipt.json": "fdeb150590852feb56842fc37ae701b1f764d1742e57e716894ef273f10cbaf6",
+    "results_v2/raw_audit.json": "f2ed1ef0e6db759aaf9568f40fd2091308f34264915192cfd9fafa30d9540c1c"
+  }
+}

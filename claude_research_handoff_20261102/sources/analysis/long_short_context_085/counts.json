@@ -1,0 +1,43 @@
+{
+  "N": 7,
+  "videos": {
+    "1150_6233408665": 4,
+    "1028_5129152550": 2,
+    "0049_3151715056": 1
+  },
+  "eligible": 11,
+  "selected": 7,
+  "target_probability_up_editL": 4,
+  "target_probability_editL_above_editN": 4,
+  "long_L_mask_probability_down_editL": 2,
+  "primary": {
+    "video_count": 3,
+    "video_equal_mean_mask_probability_editL_minus_editN": 0.0032016767169504115,
+    "video_bootstrap95": [
+      -0.006746330676833168,
+      0.02231466770172119
+    ],
+    "editL_minus_baseline_video_equal": 0.005869023999063454,
+    "support_threshold": 0.01,
+    "supported": false,
+    "uncertainty": "annotation-conditioned perturbation; does not establish semantic deletion"
+  },
+  "arms": {
+    "baseline": {
+      "locked_query_hits50": 0,
+      "gt_time_any_query_oracle_hits50": 0
+    },
+    "editL": {
+      "locked_query_hits50": 0,
+      "gt_time_any_query_oracle_hits50": 0,
+      "gain50": 0,
+      "loss50": 0
+    },
+    "editN": {
+      "locked_query_hits50": 0,
+      "gt_time_any_query_oracle_hits50": 0,
+      "gain50": 0,
+      "loss50": 0
+    }
+  }
+}

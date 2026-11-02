@@ -1,0 +1,30 @@
+{
+  "status": "DELIVERY_PACKAGE_CHECKS_PASS",
+  "date": "2026-11-02",
+  "scope": "local document/code-reference packaging; no research execution",
+  "copied_source_files_byte_verified": 708,
+  "all_requested_copy_paths_present": true,
+  "early_ledger_rows": 42,
+  "later_verdict_rows": 26,
+  "later_label_counts": {
+    "NOT_RUN_MISSING_CACHE": 1,
+    "NOT_SUPPORTED_STOP_THIS_CAUSE_RECIPE": 1,
+    "REJECT": 24
+  },
+  "current_E099_header_correctly_indexed": "REJECT",
+  "combined_context_characters": 22873,
+  "latex_compile": "PASS",
+  "latex_pages": 3,
+  "unresolved_citations": false,
+  "overfull_boxes": false,
+  "visual_QA": "all three rendered PDF pages inspected; no clipping or overlap",
+  "new_results": "NOT RUN placeholders only",
+  "scientific_validation_performed": false,
+  "new_method_implemented": false,
+  "training_or_model_inference_run": false,
+  "gpu_or_ssh_used": false,
+  "official_state_modified": false,
+  "original_checkpoints_videos_native_tensors_included": false,
+  "paper_status": "writing scaffold, not completed or submission ready",
+  "checked_at": "2026-11-02T14:10:16.757108+00:00"
+}

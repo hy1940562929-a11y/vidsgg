@@ -1,0 +1,2 @@
+# REJECT / EFFECT_TOO_SMALL_OR_UNSTABLE (UNDERPOWERED_POSITIVE)
+E112：9/9；T−N +4/+3/+13；T−X 全正；eta≈0.023。Eligible larger-scale retest.

@@ -1,0 +1,21 @@
+{
+  "experiment": "E102-EXTERIOR-NEG-FOCAL",
+  "hypothesis": "H102",
+  "verdict": "REJECT",
+  "subcause": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "contract_sha256": "d79fcc8ce91cc3c5cdb40ba04958e8c33ff1df49e8cd0742dac7b640aa534fd1",
+  "train": "9/9",
+  "residual334_T_minus_N": [
+    6,
+    1,
+    7
+  ],
+  "residual334_T_minus_X": [
+    -4,
+    -1,
+    7
+  ],
+  "eta_T_N": 0.015819209039548025,
+  "autodl": "connect.bjb1.seetacloud.com:16241",
+  "takeover": "Grace/supervisor continues"
+}

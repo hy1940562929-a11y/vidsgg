@@ -1,0 +1,24 @@
+{
+  "experiment": "E117",
+  "hypothesis": "H117",
+  "verdict": "REJECT",
+  "subcause": "DIRECTION_WRONG_OR_HARMFUL",
+  "family_closed": "centerness_mask_reweight",
+  "residual334_T_minus_N": [
+    -39,
+    -40,
+    -41
+  ],
+  "residual334_T_minus_X": [
+    -12,
+    -20,
+    -22
+  ],
+  "eta_T_N": -0.13761467889908255,
+  "eta_T_X": -0.05756929637526652,
+  "contract_sha256": "26130c76f308753d55a639e3ce930d57c53084475ffcf33ec2e3494cb06645c1",
+  "train": "9/9",
+  "optimizer_steps": 4500,
+  "autodl": "connect.bjb1.seetacloud.com:16241",
+  "sealed_at_america_new_york": "2026-10-21 13:15:00 EDT"
+}

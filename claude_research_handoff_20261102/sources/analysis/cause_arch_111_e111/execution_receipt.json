@@ -1,0 +1,16 @@
+{
+  "experiment": "E111-SHORT-QUERY-BANK",
+  "hypothesis": "H111",
+  "verdict": "REJECT",
+  "subcause": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "contract_sha256": "8d9736b4252b45a3d494e2b2cfafd97c877e3d5e35d5741599ba756698636f88",
+  "train": "9/9",
+  "residual334_T_minus_N": [
+    2,
+    0,
+    -4
+  ],
+  "eta_T_N": -0.0022988505747126436,
+  "autodl": "connect.bjb1.seetacloud.com:16241",
+  "sealed_at_america_new_york": "2026-10-21 09:03:46 EDT"
+}

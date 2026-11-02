@@ -1,0 +1,28 @@
+{
+  "experiment": "E112-SCALE",
+  "hypothesis": "H112-SCALE",
+  "verdict": "REJECT",
+  "subcause": "EFFECT_TOO_SMALL_OR_UNSTABLE",
+  "scale_falsified_small_positive": true,
+  "residual334_T_minus_N": [
+    3,
+    -4,
+    -3,
+    -1,
+    7
+  ],
+  "residual334_T_minus_X": [
+    -6,
+    -12,
+    -5,
+    -15,
+    4
+  ],
+  "eta_T_N": 0.0013440860215053762,
+  "eta_T_X": -0.022849462365591395,
+  "contract_sha256": "9915ee4738a6aafcc7e5fd70ea94a9dadbed479560b6170a7e8b08a02acf958c",
+  "train": "15/15",
+  "optimizer_steps": 30000,
+  "autodl": "connect.bjb1.seetacloud.com:16241",
+  "sealed_at_america_new_york": "2026-10-21 09:52:42 EDT"
+}
